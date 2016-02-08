@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ys0-Gk-xBk">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--Selfinfo Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="SelfinfoController" customModule="KnoWell" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whitecard" translatesAutoresizingMaskIntoConstraints="NO" id="hxq-fU-qRM">
+                                <rect key="frame" x="0.0" y="50" width="600" height="300"/>
+                                <animations/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="L9G-aO-en4">
+                                <rect key="frame" x="149" y="81" width="400" height="135"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="94" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TXQ-d5-VFV">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9QI-fb-YoL">
+                                        <rect key="frame" x="0.0" y="35" width="400" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xc5-N8-e9C">
+                                        <rect key="frame" x="0.0" y="70" width="400" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oru-A2-IU8">
+                                        <rect key="frame" x="0.0" y="105" width="400" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="137" image="Obama" highlightedImage="Obama" translatesAutoresizingMaskIntoConstraints="NO" id="A37-SE-Ash">
+                                <rect key="frame" x="20" y="81" width="110" height="137"/>
+                                <animations/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0B8-GI-aIE">
+                                <rect key="frame" x="218" y="378" width="220" height="86"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dy9-pD-R8y">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="33"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="33" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHR-Td-H3h">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="33"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Add..."/>
+                                                <connections>
+                                                    <segue destination="ebw-hd-CLY" kind="presentation" identifier="AddCard" id="PkP-RE-cwr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="33" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrr-HK-kCm">
+                                                <rect key="frame" x="120" y="0.0" width="100" height="33"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Share"/>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KKx-J1-pxC">
+                                        <rect key="frame" x="0.0" y="53" width="220" height="33"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="33" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8T4-rC-wOx">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="33"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Search"/>
+                                                <connections>
+                                                    <segue destination="rxR-77-gJW" kind="presentation" identifier="SearchCard" id="S0o-zy-y6o"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="33" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcG-09-17C">
+                                                <rect key="frame" x="120" y="0.0" width="100" height="33"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Send Doc"/>
+                                            </button>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A37-SE-Ash" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="2FC-E9-06s"/>
+                            <constraint firstItem="L9G-aO-en4" firstAttribute="leading" secondItem="A37-SE-Ash" secondAttribute="trailing" constant="40" id="2jT-zD-vph"/>
+                            <constraint firstItem="L9G-aO-en4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="CG7-gs-IfI"/>
+                            <constraint firstAttribute="trailing" secondItem="hxq-fU-qRM" secondAttribute="trailing" id="DMO-AE-e2I"/>
+                            <constraint firstItem="0B8-GI-aIE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MER-Hw-b6v"/>
+                            <constraint firstItem="0B8-GI-aIE" firstAttribute="top" secondItem="hxq-fU-qRM" secondAttribute="bottom" constant="40" id="Wxv-Je-gpo"/>
+                            <constraint firstItem="hxq-fU-qRM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xyd-hc-eV1"/>
+                            <constraint firstItem="hxq-fU-qRM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="fv5-0i-Bwn"/>
+                            <constraint firstItem="A37-SE-Ash" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="hNq-Bi-D2G"/>
+                            <constraint firstAttribute="trailing" secondItem="L9G-aO-en4" secondAttribute="trailing" constant="30" id="j0g-Mg-Eat"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QWi-KQ-Brs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="FVO-q6-ikg">
+                            <connections>
+                                <segue destination="Ahu-5Z-dDV" kind="presentation" identifier="EditCard" id="Rva-LV-BeK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="companyTextField" destination="9QI-fb-YoL" id="Age-4y-O6c"/>
+                        <outlet property="contactTextField" destination="Oru-A2-IU8" id="Ifg-yL-l2Z"/>
+                        <outlet property="nameTextField" destination="TXQ-d5-VFV" id="yXL-KX-Kn0"/>
+                        <outlet property="portraitImageView" destination="A37-SE-Ash" id="h3q-Yn-vRf"/>
+                        <outlet property="titleTextField" destination="Xc5-N8-e9C" id="Ad0-bT-yCb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="929" y="415"/>
+        </scene>
+        <!--Edit Card-->
+        <scene sceneID="Whu-UN-nb8">
+            <objects>
+                <viewController id="2uy-CZ-Ejq" customClass="EditCardViewController" customModule="KnoWell" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sok-67-UeI"/>
+                        <viewControllerLayoutGuide type="bottom" id="rwc-OC-qWw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4cH-fC-zEw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Obama" translatesAutoresizingMaskIntoConstraints="NO" id="coT-Kv-PYr">
+                                <rect key="frame" x="20" y="72" width="200" height="200"/>
+                                <animations/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jWz-aM-kdD">
+                                <rect key="frame" x="228" y="72" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqJ-mT-dWQ">
+                                <rect key="frame" x="228" y="110" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RtM-bJ-19g">
+                                <rect key="frame" x="228" y="148" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Card" id="XQt-Q2-uG9">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0K4-dz-DNI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ANh-BJ-QSt"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XC8-Rh-X7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2410" y="-369"/>
+        </scene>
+        <!--Card Library-->
+        <scene sceneID="jAk-74-6Rg">
+            <objects>
+                <tableViewController id="D1S-MK-njJ" customClass="CardTableViewController" customModule="KnoWell" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="hsa-co-IZE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CardTableViewCell" id="K3H-Hq-3kK" customClass="CardTableViewCell" customModule="KnoWell" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K3H-Hq-3kK" id="XhE-8p-zI6">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Obama" translatesAutoresizingMaskIntoConstraints="NO" id="KeQ-qj-2MR">
+                                            <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
+                                            <animations/>
+                                        </imageView>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iwb-JR-70I">
+                                            <rect key="frame" x="97" y="30" width="495" height="30"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <segue destination="2uy-CZ-Ejq" kind="show" identifier="ShowDetail" id="9O5-gC-sIA"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="D1S-MK-njJ" id="CcQ-cU-kLT"/>
+                            <outlet property="delegate" destination="D1S-MK-njJ" id="lIC-9C-Mha"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Card Library" id="dyE-jH-Uhh">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KgK-Cr-0iT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="AN5-R6-JmM"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PWA-P3-a8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2410" y="415"/>
+        </scene>
+        <!--Scan QR code-->
+        <scene sceneID="LZf-lv-MUZ">
+            <objects>
+                <viewController id="46N-6j-xrx" customClass="AddCardViewController" customModule="KnoWell" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VRF-R0-5ds"/>
+                        <viewControllerLayoutGuide type="bottom" id="JFV-gb-Lmq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VBO-2I-gb8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Scan QR code" id="cxp-zK-cBC">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dlP-Cc-si2"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="TJp-B3-xfh">
+                            <connections>
+                                <segue destination="2uy-CZ-Ejq" kind="show" id="r9d-8g-dFa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bYO-mS-Hlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2410" y="1119"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gLx-15-Scg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rxR-77-gJW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A8G-tg-74V">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="D1S-MK-njJ" kind="relationship" relationship="rootViewController" id="l7p-nM-XLl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PdU-Qj-Ixl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1598" y="415"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hav-M1-ehk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ys0-Gk-xBk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XDH-l3-MR7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4wn-rN-Ln0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fo-6I-ob6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119" y="415"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ulV-2Z-Ltk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ahu-5Z-dDV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rTR-7P-rOr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2uy-CZ-Ejq" kind="relationship" relationship="rootViewController" id="kfU-vW-Pyr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pH0-Hc-7vC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1598" y="-369"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PpI-nk-cuM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ebw-hd-CLY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EDo-nH-UhJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="46N-6j-xrx" kind="relationship" relationship="rootViewController" id="dQB-Lo-Ihh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9MU-mo-KL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1598" y="1119"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Obama" width="110" height="137"/>
+        <image name="whitecard" width="300" height="300"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="r9d-8g-dFa"/>
+    </inferredMetricsTieBreakers>
+</document>

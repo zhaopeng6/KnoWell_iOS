@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		751CB6311C6822BE00209639 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CB6301C6822BE00209639 /* CardTableViewCell.swift */; };
+		751CB6331C68703D00209639 /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CB6321C68703D00209639 /* CardTableViewController.swift */; };
+		751CB6351C6870C900209639 /* EditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CB6341C6870C900209639 /* EditCardViewController.swift */; };
+		751CB6391C68738B00209639 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CB6381C68738B00209639 /* AddCardViewController.swift */; };
+		757CE1151C5ED8F400933076 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CE1141C5ED8F400933076 /* AppDelegate.swift */; };
+		757CE1171C5ED8F400933076 /* SelfinfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CE1161C5ED8F400933076 /* SelfinfoController.swift */; };
+		757CE11A1C5ED8F400933076 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 757CE1181C5ED8F400933076 /* Main.storyboard */; };
+		757CE11C1C5ED8F400933076 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 757CE11B1C5ED8F400933076 /* Assets.xcassets */; };
+		757CE12A1C5ED8F400933076 /* KnoWellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CE1291C5ED8F400933076 /* KnoWellTests.swift */; };
+		75FC563E1C61D76F006EC492 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC563D1C61D76F006EC492 /* Card.swift */; };
+		75FC563F1C61D76F006EC492 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC563D1C61D76F006EC492 /* Card.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		757CE1261C5ED8F400933076 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 757CE1091C5ED8F400933076 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 757CE1101C5ED8F400933076;
+			remoteInfo = KnoWell;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		751CB6301C6822BE00209639 /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		751CB6321C68703D00209639 /* CardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardTableViewController.swift; path = ../CardTableViewController.swift; sourceTree = "<group>"; };
+		751CB6341C6870C900209639 /* EditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCardViewController.swift; sourceTree = "<group>"; };
+		751CB6381C68738B00209639 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCardViewController.swift; path = ../AddCardViewController.swift; sourceTree = "<group>"; };
+		757CE1111C5ED8F400933076 /* KnoWell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnoWell.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		757CE1141C5ED8F400933076 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		757CE1161C5ED8F400933076 /* SelfinfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfinfoController.swift; sourceTree = "<group>"; };
+		757CE1191C5ED8F400933076 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		757CE11B1C5ED8F400933076 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		757CE1201C5ED8F400933076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		757CE1251C5ED8F400933076 /* KnoWellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnoWellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		757CE1291C5ED8F400933076 /* KnoWellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnoWellTests.swift; sourceTree = "<group>"; };
+		757CE12B1C5ED8F400933076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75FC563D1C61D76F006EC492 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = KnoWell/Card.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		757CE10E1C5ED8F400933076 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		757CE1221C5ED8F400933076 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		757CE1081C5ED8F400933076 = {
+			isa = PBXGroup;
+			children = (
+				75FC563D1C61D76F006EC492 /* Card.swift */,
+				757CE1131C5ED8F400933076 /* KnoWell */,
+				757CE1281C5ED8F400933076 /* KnoWellTests */,
+				757CE1121C5ED8F400933076 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		757CE1121C5ED8F400933076 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				757CE1111C5ED8F400933076 /* KnoWell.app */,
+				757CE1251C5ED8F400933076 /* KnoWellTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		757CE1131C5ED8F400933076 /* KnoWell */ = {
+			isa = PBXGroup;
+			children = (
+				751CB6321C68703D00209639 /* CardTableViewController.swift */,
+				757CE1141C5ED8F400933076 /* AppDelegate.swift */,
+				757CE1161C5ED8F400933076 /* SelfinfoController.swift */,
+				751CB6301C6822BE00209639 /* CardTableViewCell.swift */,
+				757CE1181C5ED8F400933076 /* Main.storyboard */,
+				751CB6341C6870C900209639 /* EditCardViewController.swift */,
+				751CB6381C68738B00209639 /* AddCardViewController.swift */,
+				757CE11B1C5ED8F400933076 /* Assets.xcassets */,
+				757CE1201C5ED8F400933076 /* Info.plist */,
+			);
+			path = KnoWell;
+			sourceTree = "<group>";
+		};
+		757CE1281C5ED8F400933076 /* KnoWellTests */ = {
+			isa = PBXGroup;
+			children = (
+				757CE1291C5ED8F400933076 /* KnoWellTests.swift */,
+				757CE12B1C5ED8F400933076 /* Info.plist */,
+			);
+			path = KnoWellTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		757CE1101C5ED8F400933076 /* KnoWell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 757CE12E1C5ED8F400933076 /* Build configuration list for PBXNativeTarget "KnoWell" */;
+			buildPhases = (
+				757CE10D1C5ED8F400933076 /* Sources */,
+				757CE10E1C5ED8F400933076 /* Frameworks */,
+				757CE10F1C5ED8F400933076 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KnoWell;
+			productName = KnoWell;
+			productReference = 757CE1111C5ED8F400933076 /* KnoWell.app */;
+			productType = "com.apple.product-type.application";
+		};
+		757CE1241C5ED8F400933076 /* KnoWellTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 757CE1311C5ED8F400933076 /* Build configuration list for PBXNativeTarget "KnoWellTests" */;
+			buildPhases = (
+				757CE1211C5ED8F400933076 /* Sources */,
+				757CE1221C5ED8F400933076 /* Frameworks */,
+				757CE1231C5ED8F400933076 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				757CE1271C5ED8F400933076 /* PBXTargetDependency */,
+			);
+			name = KnoWellTests;
+			productName = KnoWellTests;
+			productReference = 757CE1251C5ED8F400933076 /* KnoWellTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		757CE1091C5ED8F400933076 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = MickelStudios;
+				TargetAttributes = {
+					757CE1101C5ED8F400933076 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					757CE1241C5ED8F400933076 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 757CE1101C5ED8F400933076;
+					};
+				};
+			};
+			buildConfigurationList = 757CE10C1C5ED8F400933076 /* Build configuration list for PBXProject "KnoWell" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 757CE1081C5ED8F400933076;
+			productRefGroup = 757CE1121C5ED8F400933076 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				757CE1101C5ED8F400933076 /* KnoWell */,
+				757CE1241C5ED8F400933076 /* KnoWellTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		757CE10F1C5ED8F400933076 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				757CE11C1C5ED8F400933076 /* Assets.xcassets in Resources */,
+				757CE11A1C5ED8F400933076 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		757CE1231C5ED8F400933076 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		757CE10D1C5ED8F400933076 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				751CB6391C68738B00209639 /* AddCardViewController.swift in Sources */,
+				751CB6351C6870C900209639 /* EditCardViewController.swift in Sources */,
+				757CE1171C5ED8F400933076 /* SelfinfoController.swift in Sources */,
+				75FC563E1C61D76F006EC492 /* Card.swift in Sources */,
+				757CE1151C5ED8F400933076 /* AppDelegate.swift in Sources */,
+				751CB6331C68703D00209639 /* CardTableViewController.swift in Sources */,
+				751CB6311C6822BE00209639 /* CardTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		757CE1211C5ED8F400933076 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				757CE12A1C5ED8F400933076 /* KnoWellTests.swift in Sources */,
+				75FC563F1C61D76F006EC492 /* Card.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		757CE1271C5ED8F400933076 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 757CE1101C5ED8F400933076 /* KnoWell */;
+			targetProxy = 757CE1261C5ED8F400933076 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		757CE1181C5ED8F400933076 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				757CE1191C5ED8F400933076 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		757CE12C1C5ED8F400933076 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		757CE12D1C5ED8F400933076 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		757CE12F1C5ED8F400933076 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KnoWell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MickelStudios.KnoWell;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		757CE1301C5ED8F400933076 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KnoWell/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MickelStudios.KnoWell;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		757CE1321C5ED8F400933076 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KnoWellTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MickelStudios.KnoWellTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnoWell.app/KnoWell";
+			};
+			name = Debug;
+		};
+		757CE1331C5ED8F400933076 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = KnoWellTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MickelStudios.KnoWellTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnoWell.app/KnoWell";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		757CE10C1C5ED8F400933076 /* Build configuration list for PBXProject "KnoWell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				757CE12C1C5ED8F400933076 /* Debug */,
+				757CE12D1C5ED8F400933076 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		757CE12E1C5ED8F400933076 /* Build configuration list for PBXNativeTarget "KnoWell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				757CE12F1C5ED8F400933076 /* Debug */,
+				757CE1301C5ED8F400933076 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		757CE1311C5ED8F400933076 /* Build configuration list for PBXNativeTarget "KnoWellTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				757CE1321C5ED8F400933076 /* Debug */,
+				757CE1331C5ED8F400933076 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 757CE1091C5ED8F400933076 /* Project object */;
+}
