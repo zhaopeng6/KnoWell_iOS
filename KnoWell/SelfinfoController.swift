@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelfinfoController: UIViewController {
+class SelfinfoController: UIViewController, UITextFieldDelegate{
     
     //MARK:Properties
     @IBOutlet weak var nameTextField: UITextField!

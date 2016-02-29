@@ -150,38 +150,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Obama" translatesAutoresizingMaskIntoConstraints="NO" id="coT-Kv-PYr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Obama" translatesAutoresizingMaskIntoConstraints="NO" id="coT-Kv-PYr">
                                 <rect key="frame" x="20" y="72" width="200" height="200"/>
                                 <animations/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Kgr-5Y-aYO" appends="YES" id="OU5-x1-D5V"/>
+                                </connections>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jWz-aM-kdD">
-                                <rect key="frame" x="228" y="72" width="97" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4HV-0V-Ssy">
+                                <rect key="frame" x="228" y="72" width="94" height="135"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jWz-aM-kdD">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqJ-mT-dWQ">
+                                        <rect key="frame" x="0.0" y="35" width="94" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RtM-bJ-19g">
+                                        <rect key="frame" x="0.0" y="70" width="94" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o0i-Gt-im8">
+                                        <rect key="frame" x="0.0" y="105" width="94" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kqJ-mT-dWQ">
-                                <rect key="frame" x="228" y="110" width="97" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RtM-bJ-19g">
-                                <rect key="frame" x="228" y="148" width="97" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </stackView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4HV-0V-Ssy" firstAttribute="leading" secondItem="coT-Kv-PYr" secondAttribute="trailing" constant="10" id="DBY-eD-ysU"/>
+                            <constraint firstAttribute="trailing" secondItem="4HV-0V-Ssy" secondAttribute="trailing" constant="20" id="Xf1-5j-hXL"/>
+                            <constraint firstItem="4HV-0V-Ssy" firstAttribute="top" secondItem="Sok-67-UeI" secondAttribute="bottom" constant="10" id="bj5-wv-gps"/>
+                            <constraint firstItem="coT-Kv-PYr" firstAttribute="top" secondItem="Sok-67-UeI" secondAttribute="bottom" constant="10" id="ghT-vV-ae2"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Card" id="XQt-Q2-uG9">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0K4-dz-DNI"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ANh-BJ-QSt"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="companyText" destination="kqJ-mT-dWQ" id="PzA-ZE-3eu"/>
+                        <outlet property="contactText" destination="o0i-Gt-im8" id="55w-on-UpJ"/>
+                        <outlet property="name" destination="jWz-aM-kdD" id="ogO-S9-zLL"/>
+                        <outlet property="portraitImage" destination="coT-Kv-PYr" id="Fht-fO-vL9"/>
+                        <outlet property="selectImageFromPhotoLibrary" destination="Kgr-5Y-aYO" id="hmw-fu-tAH"/>
+                        <outlet property="titleText" destination="RtM-bJ-19g" id="ush-yN-1uE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XC8-Rh-X7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Kgr-5Y-aYO">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="2uy-CZ-Ejq" id="iqH-tT-wfA"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2410" y="-369"/>
         </scene>
