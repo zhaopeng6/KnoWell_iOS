@@ -18,6 +18,19 @@
 		757CE12A1C5ED8F400933076 /* KnoWellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CE1291C5ED8F400933076 /* KnoWellTests.swift */; };
 		75FC563E1C61D76F006EC492 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC563D1C61D76F006EC492 /* Card.swift */; };
 		75FC563F1C61D76F006EC492 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC563D1C61D76F006EC492 /* Card.swift */; };
+		D28AEAA41C8619250018AC76 /* LoginViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28AEAA31C8619250018AC76 /* LoginViewControlller.swift */; };
+		D28AEAA61C861B570018AC76 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAA51C861B570018AC76 /* Parse.framework */; };
+		D28AEAA81C861B650018AC76 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAA71C861B650018AC76 /* Bolts.framework */; };
+		D28AEAAA1C861B970018AC76 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAA91C861B970018AC76 /* AudioToolbox.framework */; };
+		D28AEAAC1C861BBB0018AC76 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAAB1C861BBB0018AC76 /* CFNetwork.framework */; };
+		D28AEAAE1C861BC40018AC76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAAD1C861BC40018AC76 /* CoreGraphics.framework */; };
+		D28AEAB01C861BCC0018AC76 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAAF1C861BCC0018AC76 /* CoreLocation.framework */; };
+		D28AEAB21C861BE40018AC76 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAB11C861BE40018AC76 /* MobileCoreServices.framework */; };
+		D28AEAB41C861BEC0018AC76 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAB31C861BEC0018AC76 /* QuartzCore.framework */; };
+		D28AEAB61C861BF40018AC76 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAB51C861BF40018AC76 /* Security.framework */; };
+		D28AEAB81C861BFC0018AC76 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAB71C861BFC0018AC76 /* StoreKit.framework */; };
+		D28AEABA1C861C050018AC76 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAB91C861C050018AC76 /* SystemConfiguration.framework */; };
+		D28AEAC01C861D980018AC76 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEABF1C861D980018AC76 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +58,20 @@
 		757CE1291C5ED8F400933076 /* KnoWellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnoWellTests.swift; sourceTree = "<group>"; };
 		757CE12B1C5ED8F400933076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75FC563D1C61D76F006EC492 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = KnoWell/Card.swift; sourceTree = "<group>"; };
+		D28AEAA31C8619250018AC76 /* LoginViewControlller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControlller.swift; sourceTree = "<group>"; };
+		D28AEAA51C861B570018AC76 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		D28AEAA71C861B650018AC76 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		D28AEAA91C861B970018AC76 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		D28AEAAB1C861BBB0018AC76 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D28AEAAD1C861BC40018AC76 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D28AEAAF1C861BCC0018AC76 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D28AEAB11C861BE40018AC76 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D28AEAB31C861BEC0018AC76 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D28AEAB51C861BF40018AC76 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D28AEAB71C861BFC0018AC76 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		D28AEAB91C861C050018AC76 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D28AEABC1C861CFE0018AC76 /* KnoWell-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KnoWell-Bridging-Header.h"; sourceTree = "<group>"; };
+		D28AEABF1C861D980018AC76 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +79,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D28AEAC01C861D980018AC76 /* libsqlite3.tbd in Frameworks */,
+				D28AEABA1C861C050018AC76 /* SystemConfiguration.framework in Frameworks */,
+				D28AEAB81C861BFC0018AC76 /* StoreKit.framework in Frameworks */,
+				D28AEAB61C861BF40018AC76 /* Security.framework in Frameworks */,
+				D28AEAB41C861BEC0018AC76 /* QuartzCore.framework in Frameworks */,
+				D28AEAB21C861BE40018AC76 /* MobileCoreServices.framework in Frameworks */,
+				D28AEAB01C861BCC0018AC76 /* CoreLocation.framework in Frameworks */,
+				D28AEAAE1C861BC40018AC76 /* CoreGraphics.framework in Frameworks */,
+				D28AEAAC1C861BBB0018AC76 /* CFNetwork.framework in Frameworks */,
+				D28AEAAA1C861B970018AC76 /* AudioToolbox.framework in Frameworks */,
+				D28AEAA61C861B570018AC76 /* Parse.framework in Frameworks */,
+				D28AEAA81C861B650018AC76 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,10 +107,12 @@
 		757CE1081C5ED8F400933076 = {
 			isa = PBXGroup;
 			children = (
+				D28AEABB1C861C220018AC76 /* Frameworks */,
 				75FC563D1C61D76F006EC492 /* Card.swift */,
 				757CE1131C5ED8F400933076 /* KnoWell */,
 				757CE1281C5ED8F400933076 /* KnoWellTests */,
 				757CE1121C5ED8F400933076 /* Products */,
+				D28AEABC1C861CFE0018AC76 /* KnoWell-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				751CB6321C68703D00209639 /* CardTableViewController.swift */,
+				D28AEAA31C8619250018AC76 /* LoginViewControlller.swift */,
 				757CE1141C5ED8F400933076 /* AppDelegate.swift */,
 				757CE1161C5ED8F400933076 /* SelfinfoController.swift */,
 				751CB6301C6822BE00209639 /* CardTableViewCell.swift */,
@@ -107,6 +149,25 @@
 				757CE12B1C5ED8F400933076 /* Info.plist */,
 			);
 			path = KnoWellTests;
+			sourceTree = "<group>";
+		};
+		D28AEABB1C861C220018AC76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D28AEABF1C861D980018AC76 /* libsqlite3.tbd */,
+				D28AEAB91C861C050018AC76 /* SystemConfiguration.framework */,
+				D28AEAB71C861BFC0018AC76 /* StoreKit.framework */,
+				D28AEAB51C861BF40018AC76 /* Security.framework */,
+				D28AEAB31C861BEC0018AC76 /* QuartzCore.framework */,
+				D28AEAB11C861BE40018AC76 /* MobileCoreServices.framework */,
+				D28AEAAF1C861BCC0018AC76 /* CoreLocation.framework */,
+				D28AEAAD1C861BC40018AC76 /* CoreGraphics.framework */,
+				D28AEAAB1C861BBB0018AC76 /* CFNetwork.framework */,
+				D28AEAA91C861B970018AC76 /* AudioToolbox.framework */,
+				D28AEAA51C861B570018AC76 /* Parse.framework */,
+				D28AEAA71C861B650018AC76 /* Bolts.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,7 +214,7 @@
 		757CE1091C5ED8F400933076 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = MickelStudios;
 				TargetAttributes = {
@@ -210,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				751CB6391C68738B00209639 /* AddCardViewController.swift in Sources */,
+				D28AEAA41C8619250018AC76 /* LoginViewControlller.swift in Sources */,
 				751CB6351C6870C900209639 /* EditCardViewController.swift in Sources */,
 				757CE1171C5ED8F400933076 /* SelfinfoController.swift in Sources */,
 				75FC563E1C61D76F006EC492 /* Card.swift in Sources */,
@@ -335,10 +397,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KnoWell/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MickelStudios.KnoWell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KnoWell-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -346,10 +415,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KnoWell/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MickelStudios.KnoWell;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KnoWell-Bridging-Header.h";
 			};
 			name = Release;
 		};
