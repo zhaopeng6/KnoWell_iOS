@@ -8,9 +8,8 @@
 
 import UIKit
 
-class Card{
-    //Mark: Properties
-    
+class Card {
+    //Mark: Properties    
     var name:String
     var portrait:UIImage?
     var title:String?
@@ -19,6 +18,7 @@ class Card{
     var location:String?
     var notes:String?
     var record:NSURL?
+
     //Mark: Initialization
     init?(name:String,portrait:UIImage?,title:String?,email:String?,phone:String?,location:String?,notes:String?,record:NSURL?){
         self.name = name

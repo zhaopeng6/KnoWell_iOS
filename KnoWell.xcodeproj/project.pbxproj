@@ -18,6 +18,8 @@
 		757CE12A1C5ED8F400933076 /* KnoWellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CE1291C5ED8F400933076 /* KnoWellTests.swift */; };
 		75FC563E1C61D76F006EC492 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC563D1C61D76F006EC492 /* Card.swift */; };
 		75FC563F1C61D76F006EC492 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FC563D1C61D76F006EC492 /* Card.swift */; };
+		D25729B01C88C20A008368EE /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25729AF1C88C20A008368EE /* Utilities.swift */; };
+		D25729B11C88C20A008368EE /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25729AF1C88C20A008368EE /* Utilities.swift */; };
 		D28AEAA41C8619250018AC76 /* LoginViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28AEAA31C8619250018AC76 /* LoginViewControlller.swift */; };
 		D28AEAA61C861B570018AC76 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAA51C861B570018AC76 /* Parse.framework */; };
 		D28AEAA81C861B650018AC76 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28AEAA71C861B650018AC76 /* Bolts.framework */; };
@@ -57,7 +59,8 @@
 		757CE1251C5ED8F400933076 /* KnoWellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnoWellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		757CE1291C5ED8F400933076 /* KnoWellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnoWellTests.swift; sourceTree = "<group>"; };
 		757CE12B1C5ED8F400933076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75FC563D1C61D76F006EC492 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Card.swift; path = KnoWell/Card.swift; sourceTree = "<group>"; };
+		75FC563D1C61D76F006EC492 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D25729AF1C88C20A008368EE /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D28AEAA31C8619250018AC76 /* LoginViewControlller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControlller.swift; sourceTree = "<group>"; };
 		D28AEAA51C861B570018AC76 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D28AEAA71C861B650018AC76 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -108,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				D28AEABB1C861C220018AC76 /* Frameworks */,
-				75FC563D1C61D76F006EC492 /* Card.swift */,
 				757CE1131C5ED8F400933076 /* KnoWell */,
 				757CE1281C5ED8F400933076 /* KnoWellTests */,
 				757CE1121C5ED8F400933076 /* Products */,
@@ -128,14 +130,10 @@
 		757CE1131C5ED8F400933076 /* KnoWell */ = {
 			isa = PBXGroup;
 			children = (
-				751CB6321C68703D00209639 /* CardTableViewController.swift */,
-				D28AEAA31C8619250018AC76 /* LoginViewControlller.swift */,
+				D25729AE1C88C1D2008368EE /* Infrastructure */,
+				D25729AD1C88C1BE008368EE /* ViewControllers */,
 				757CE1141C5ED8F400933076 /* AppDelegate.swift */,
-				757CE1161C5ED8F400933076 /* SelfinfoController.swift */,
-				751CB6301C6822BE00209639 /* CardTableViewCell.swift */,
 				757CE1181C5ED8F400933076 /* Main.storyboard */,
-				751CB6341C6870C900209639 /* EditCardViewController.swift */,
-				751CB6381C68738B00209639 /* AddCardViewController.swift */,
 				757CE11B1C5ED8F400933076 /* Assets.xcassets */,
 				757CE1201C5ED8F400933076 /* Info.plist */,
 			);
@@ -149,6 +147,28 @@
 				757CE12B1C5ED8F400933076 /* Info.plist */,
 			);
 			path = KnoWellTests;
+			sourceTree = "<group>";
+		};
+		D25729AD1C88C1BE008368EE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				751CB6321C68703D00209639 /* CardTableViewController.swift */,
+				D28AEAA31C8619250018AC76 /* LoginViewControlller.swift */,
+				757CE1161C5ED8F400933076 /* SelfinfoController.swift */,
+				751CB6301C6822BE00209639 /* CardTableViewCell.swift */,
+				751CB6341C6870C900209639 /* EditCardViewController.swift */,
+				751CB6381C68738B00209639 /* AddCardViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D25729AE1C88C1D2008368EE /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				75FC563D1C61D76F006EC492 /* Card.swift */,
+				D25729AF1C88C20A008368EE /* Utilities.swift */,
+			);
+			name = Infrastructure;
 			sourceTree = "<group>";
 		};
 		D28AEABB1C861C220018AC76 /* Frameworks */ = {
@@ -276,6 +296,7 @@
 				757CE1171C5ED8F400933076 /* SelfinfoController.swift in Sources */,
 				75FC563E1C61D76F006EC492 /* Card.swift in Sources */,
 				757CE1151C5ED8F400933076 /* AppDelegate.swift in Sources */,
+				D25729B01C88C20A008368EE /* Utilities.swift in Sources */,
 				751CB6331C68703D00209639 /* CardTableViewController.swift in Sources */,
 				751CB6311C6822BE00209639 /* CardTableViewCell.swift in Sources */,
 			);
@@ -285,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D25729B11C88C20A008368EE /* Utilities.swift in Sources */,
 				757CE12A1C5ED8F400933076 /* KnoWellTests.swift in Sources */,
 				75FC563F1C61D76F006EC492 /* Card.swift in Sources */,
 			);

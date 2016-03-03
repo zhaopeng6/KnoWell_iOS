@@ -24,6 +24,8 @@ class SelfinfoController: UIViewController {
         if let pUserName = PFUser.currentUser()?["username"] as? String {
             self.nameTextField.text = pUserName
         }
+        
+        portraitImageView.image = Utilities.generateQRCode("Hello")
     }
     
     @IBAction func logOutAction(sender: AnyObject){
