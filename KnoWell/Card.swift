@@ -34,4 +34,8 @@ class Card {
         }
     }
     
+    func getCardFromPFUser(pfUser: PFUser) -> Card? {
+        return nil
+    }
+    
 }

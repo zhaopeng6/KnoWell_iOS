@@ -17,7 +17,7 @@ class SelfinfoController: UIViewController {
     @IBOutlet weak var contactTextField: UITextField!
     @IBOutlet weak var portraitImageView: UIImageView!
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Show the current visitor's username
@@ -25,7 +25,7 @@ class SelfinfoController: UIViewController {
             self.nameTextField.text = pUserName
         }
         
-        portraitImageView.image = Utilities.generateQRCode("Hello")
+        Utilities.setImageViewToQRCode(portraitImageView, qrString: "Hello")
     }
     
     @IBAction func logOutAction(sender: AnyObject){
@@ -47,12 +47,12 @@ class SelfinfoController: UIViewController {
             })
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
