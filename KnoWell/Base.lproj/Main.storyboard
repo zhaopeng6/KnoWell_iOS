@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Selfinfo Controller-->
@@ -221,7 +222,36 @@
                     <view key="view" contentMode="scaleToFill" id="VBO-2I-gb8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56D-aU-3m9">
+                                <rect key="frame" x="15" y="79" width="565" height="513"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR Code is detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f21-ln-ken">
+                                        <rect key="frame" x="0.0" y="473" width="565" height="40"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="QJl-tY-uPc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="f21-ln-ken" secondAttribute="bottom" id="Kmp-0a-cQA"/>
+                                    <constraint firstItem="f21-ln-ken" firstAttribute="leading" secondItem="56D-aU-3m9" secondAttribute="leading" id="oBM-9x-Zja"/>
+                                    <constraint firstAttribute="trailing" secondItem="f21-ln-ken" secondAttribute="trailing" id="qMv-Qw-BQP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="56D-aU-3m9" firstAttribute="top" secondItem="VRF-R0-5ds" secondAttribute="bottom" constant="15" id="5gn-CW-1qn"/>
+                            <constraint firstItem="56D-aU-3m9" firstAttribute="leading" secondItem="VBO-2I-gb8" secondAttribute="leadingMargin" constant="-5" id="deW-Dm-6Zw"/>
+                            <constraint firstItem="56D-aU-3m9" firstAttribute="trailing" secondItem="VBO-2I-gb8" secondAttribute="trailingMargin" id="iwB-bM-Kqa"/>
+                            <constraint firstAttribute="bottom" secondItem="56D-aU-3m9" secondAttribute="bottom" constant="8" id="wAO-ED-RcP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Scan QR code" id="cxp-zK-cBC">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dlP-Cc-si2"/>
@@ -231,10 +261,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="messageLabel" destination="f21-ln-ken" id="hea-kC-dWp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYO-mS-Hlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2410" y="1119"/>
+            <point key="canvasLocation" x="2339" y="1090"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gLx-15-Scg">
@@ -466,6 +499,6 @@
         <image name="whitecard" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kfU-vW-Pyr"/>
+        <segue reference="r9d-8g-dFa"/>
     </inferredMetricsTieBreakers>
 </document>
