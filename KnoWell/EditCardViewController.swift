@@ -11,15 +11,18 @@ import UIKit
 class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     // Mark: properties
-    @IBOutlet weak var nameText: UITextField!
-    @IBOutlet weak var companyText: UITextField!
-    @IBOutlet weak var titleText: UITextField!
-    @IBOutlet weak var contactText: UITextField!
-    @IBOutlet weak var portraitImage: UIImageView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var companyTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var contactTextField: UITextField!
+    @IBOutlet weak var portraitImageField: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let pUserName = PFUser.currentUser()?["username"] as? String {
+            self.nameTextField.text = pUserName
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -46,13 +49,13 @@ class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePicke
         return true
     }
     func textFieldDidEndEditing(textField: UITextField) {
-        nameText.text = "obama"
+        nameTextField.text = "obama"
     }
     
     //Mark: Actions
     @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
         //hide the keyboard
-        nameText.resignFirstResponder();
+        nameTextField.resignFirstResponder();
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = .PhotoLibrary
         imagePickerController.delegate = self
@@ -68,7 +71,7 @@ class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePicke
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // Set photoImageView to display the selected image.
-        portraitImage.image = selectedImage
+        portraitImageField.image = selectedImage
         
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
