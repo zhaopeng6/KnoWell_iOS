@@ -21,9 +21,13 @@ class SelfinfoController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Show the current visitor's username
-        if let pUserName = PFUser.currentUser()?["username"] as? String {
-            self.nameTextField.text = pUserName
+        if let pName = PFUser.currentUser()?["name"] as? String {
+            self.nameTextField.text = pName
         }
+        if let pCompany = PFUser.currentUser()?["company"] as? String{
+            self.companyTextField.text = pCompany
+        }
+        
     }
     
     @IBAction func logOutAction(sender: AnyObject){

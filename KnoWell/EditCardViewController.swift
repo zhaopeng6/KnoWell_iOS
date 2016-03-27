@@ -20,8 +20,8 @@ class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let pUserName = PFUser.currentUser()?["username"] as? String {
-            self.nameTextField.text = pUserName
+        if let pName = PFUser.currentUser()?["name"] as? String {
+            self.nameTextField.text = pName
         }
         // Do any additional setup after loading the view.
     }
