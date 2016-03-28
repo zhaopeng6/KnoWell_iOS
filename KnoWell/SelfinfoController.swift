@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelfinfoController: UIViewController {
+class SelfinfoController: UIViewController, UITextFieldDelegate{
     
     //MARK:Properties
     @IBOutlet weak var nameTextField: UITextField!
@@ -21,11 +21,15 @@ class SelfinfoController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Show the current visitor's username
-        if let pUserName = PFUser.currentUser()?["username"] as? String {
-            self.nameTextField.text = pUserName
+        if let pName = PFUser.currentUser()?["name"] as? String {
+            self.nameTextField.text = pName
         }
         
         Utilities.setImageViewToQRCode(portraitImageView, qrString: "Hello")
+
+        if let pCompany = PFUser.currentUser()?["company"] as? String{
+            self.companyTextField.text = pCompany
+        }
     }
     
     @IBAction func logOutAction(sender: AnyObject){
