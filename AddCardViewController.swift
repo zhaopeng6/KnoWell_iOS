@@ -17,6 +17,8 @@ class AddCardViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     
+    var capturedCard:Card?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +34,7 @@ class AddCardViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             input = try AVCaptureDeviceInput(device: captureDevice)
         } catch _ {
             // If any error occurs, simply log the description of it and don't continue any more.
-            NSLog("SilentError: Cannot open capture device - %s", (error?.localizedDescription)!)
+            performSegueWithIdentifier("ScannedCardSegue", sender: nil)
             error = nil
             return
         }
@@ -71,7 +73,7 @@ class AddCardViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
-        
+
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRectZero
@@ -89,6 +91,8 @@ class AddCardViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             
             if metadataObj.stringValue != nil {
                 messageLabel.text = metadataObj.stringValue
+                print("SilentError: Got Text %s", messageLabel.text)
+                performSegueWithIdentifier("ScannedCardSegue", sender: nil)
             }
         }
     }
@@ -99,14 +103,16 @@ class AddCardViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     
-    /*
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        if segue.identifier == "ScannedCardSegue" {
+            // Get the new view controller using segue.destinationViewController.
+            let controller = segue.destinationViewController as! EditCardViewController
+
+            // Pass the selected object to the new view controller.
+            controller.toEditCard = Card()
+        }
     }
-    */
     
 }

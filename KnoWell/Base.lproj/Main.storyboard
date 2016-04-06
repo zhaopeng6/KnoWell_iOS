@@ -108,7 +108,7 @@
                     <navigationItem key="navigationItem" id="QWi-KQ-Brs">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="FVO-q6-ikg">
                             <connections>
-                                <segue destination="Ahu-5Z-dDV" kind="presentation" identifier="EditCard" id="Rva-LV-BeK"/>
+                                <segue destination="Ahu-5Z-dDV" kind="presentation" identifier="EditCardSegue" id="Rva-LV-BeK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -278,7 +278,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dlP-Cc-si2"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="TJp-B3-xfh">
                             <connections>
-                                <segue destination="2uy-CZ-Ejq" kind="show" id="r9d-8g-dFa"/>
+                                <segue destination="2uy-CZ-Ejq" kind="presentation" identifier="ScannedCardSegue" id="r9d-8g-dFa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -401,8 +401,20 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5Z-5e-KJu">
-                                        <rect key="frame" x="103" y="195" width="63" height="45"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBa-81-yU9">
+                                        <rect key="frame" x="75" y="227" width="121" height="33"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="121" id="77g-Tu-vUB"/>
+                                            <constraint firstAttribute="height" constant="33" id="fOt-9V-dtw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                        <state key="normal" title="Forgot Password?">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5Z-5e-KJu">
+                                        <rect key="frame" x="103" y="171" width="63" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="63" id="Mgn-RK-Sf5"/>
                                             <constraint firstAttribute="height" constant="45" id="vpc-nX-ttU"/>
@@ -416,17 +428,8 @@
                                             <action selector="loginAction:" destination="SYS-XQ-UI6" eventType="touchUpInside" id="0qJ-Jq-K8K"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar" translatesAutoresizingMaskIntoConstraints="NO" id="thu-an-dd3">
-                                        <rect key="frame" x="0.0" y="284" width="270" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="33k-vQ-Lzi"/>
-                                            <constraint firstAttribute="width" constant="270" id="BX6-TZ-LvL"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="hRy-Y5-05X"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="xDV-jW-HUA"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWq-nK-te0">
-                                        <rect key="frame" x="102" y="300" width="64" height="33"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWq-nK-te0">
+                                        <rect key="frame" x="103" y="269" width="64" height="33"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64" id="Azo-ic-6IF"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="Z6p-0U-AOe"/>
@@ -438,30 +441,16 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBa-81-yU9">
-                                        <rect key="frame" x="75" y="259" width="121" height="33"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="121" id="77g-Tu-vUB"/>
-                                            <constraint firstAttribute="height" constant="33" id="fOt-9V-dtw"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                        <state key="normal" title="Forgot Password?">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="m5Z-5e-KJu" firstAttribute="top" secondItem="5NW-ID-q0L" secondAttribute="bottom" constant="32" id="2yw-yQ-l5X"/>
-                                    <constraint firstItem="thu-an-dd3" firstAttribute="top" secondItem="FBa-81-yU9" secondAttribute="bottom" constant="-8" id="4aF-nK-yQp"/>
                                     <constraint firstAttribute="width" constant="270" id="5px-4c-On7"/>
                                     <constraint firstItem="gdY-m8-udV" firstAttribute="top" secondItem="snF-1a-XeT" secondAttribute="bottom" constant="3.5" id="7sy-Gi-AxQ"/>
                                     <constraint firstAttribute="centerX" secondItem="FBa-81-yU9" secondAttribute="centerX" id="F5w-jm-9A0"/>
                                     <constraint firstItem="5NW-ID-q0L" firstAttribute="top" secondItem="gdY-m8-udV" secondAttribute="bottom" constant="23" id="Goq-lg-A2E"/>
                                     <constraint firstAttribute="centerX" secondItem="snF-1a-XeT" secondAttribute="centerX" constant="-0.75" id="JKB-Ee-Vl4"/>
                                     <constraint firstAttribute="centerY" secondItem="snF-1a-XeT" secondAttribute="centerY" id="Kbt-OB-r1U"/>
-                                    <constraint firstAttribute="centerX" secondItem="thu-an-dd3" secondAttribute="centerX" id="QLQ-Bs-z7D"/>
                                     <constraint firstAttribute="centerX" secondItem="m5Z-5e-KJu" secondAttribute="centerX" id="SYI-iX-MeF"/>
                                     <constraint firstItem="snF-1a-XeT" firstAttribute="centerX" secondItem="gdY-m8-udV" secondAttribute="centerX" constant="0.5" id="ZPE-dE-ovr"/>
                                     <constraint firstAttribute="centerX" secondItem="snF-1a-XeT" secondAttribute="centerX" constant="-0.5" id="Zaz-Fp-gCI"/>
@@ -475,7 +464,6 @@
                                     <constraint firstAttribute="centerX" secondItem="5NW-ID-q0L" secondAttribute="centerX" id="jby-k7-ZqV"/>
                                     <constraint firstItem="5NW-ID-q0L" firstAttribute="top" secondItem="gdY-m8-udV" secondAttribute="bottom" constant="23" id="kqI-EN-myg"/>
                                     <constraint firstAttribute="height" constant="346" id="m7l-AL-HHC"/>
-                                    <constraint firstItem="vWq-nK-te0" firstAttribute="top" secondItem="thu-an-dd3" secondAttribute="bottom" constant="-4" id="pey-9F-jW7"/>
                                     <constraint firstAttribute="centerX" secondItem="gdY-m8-udV" secondAttribute="centerX" id="rdZ-yW-uOM"/>
                                     <constraint firstItem="gdY-m8-udV" firstAttribute="centerX" secondItem="5NW-ID-q0L" secondAttribute="centerX" id="sKf-82-kqC"/>
                                     <constraint firstItem="gdY-m8-udV" firstAttribute="centerX" secondItem="snF-1a-XeT" secondAttribute="centerX" constant="-0.25" id="zqi-bN-7wC"/>
@@ -497,13 +485,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkg-Bk-ivq">
-                                <rect key="frame" x="277" y="54" width="46" height="30"/>
-                                <state key="normal" title="Button" backgroundImage="whitecard"/>
-                                <connections>
-                                    <segue destination="Ys0-Gk-xBk" kind="show" id="dVm-ed-lNC"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.40784313729999999" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -523,7 +504,6 @@
     </scenes>
     <resources>
         <image name="Obama" width="110" height="137"/>
-        <image name="bar" width="300" height="300"/>
         <image name="whitecard" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>

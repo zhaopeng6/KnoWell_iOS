@@ -11,10 +11,10 @@ import UIKit
 class SelfinfoController: UIViewController, UITextFieldDelegate{
     
     //MARK:Properties
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var companyTextField: UITextField!
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var contactTextField: UITextField!
+    @IBOutlet weak var nameTextField: UILabel!
+    @IBOutlet weak var companyTextField: UILabel!
+    @IBOutlet weak var titleTextField: UILabel!
+    @IBOutlet weak var contactTextField: UILabel!
     @IBOutlet weak var portraitImageView: UIImageView!
     
     

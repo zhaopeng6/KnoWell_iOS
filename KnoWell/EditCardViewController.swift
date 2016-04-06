@@ -17,6 +17,8 @@ class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     @IBOutlet weak var contactTextField: UITextField!
     @IBOutlet weak var portraitImageField: UIImageView!
     
+    var toEditCard:Card?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
