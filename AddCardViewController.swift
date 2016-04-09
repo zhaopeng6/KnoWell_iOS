@@ -18,7 +18,7 @@ class AddCardViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var qrCodeFrameView:UIView?
     
     var capturedCard:Card?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,7 +63,7 @@ class AddCardViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         // Move the message label to the top view
         view.bringSubviewToFront(messageLabel)
-
+        
         // Initialize QR Code Frame to highlight the QR code
         qrCodeFrameView = UIView()
         qrCodeFrameView?.layer.borderColor = UIColor.greenColor().CGColor
@@ -73,7 +73,7 @@ class AddCardViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
-
+        
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRectZero
@@ -109,7 +109,7 @@ class AddCardViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         if segue.identifier == "ScannedCardSegue" {
             // Get the new view controller using segue.destinationViewController.
             let controller = segue.destinationViewController as! EditCardViewController
-
+            
             // Pass the selected object to the new view controller.
             controller.toEditCard = Card()
         }

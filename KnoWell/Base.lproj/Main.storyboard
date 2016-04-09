@@ -208,11 +208,13 @@
                                         </imageView>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iwb-JR-70I">
                                             <rect key="frame" x="97" y="30" width="495" height="30"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="Name"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="CardTableViewCell"/>
                                 <connections>
                                     <segue destination="2uy-CZ-Ejq" kind="show" identifier="ShowDetail" id="9O5-gC-sIA"/>
                                 </connections>
@@ -507,6 +509,6 @@
         <image name="whitecard" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r9d-8g-dFa"/>
+        <segue reference="9O5-gC-sIA"/>
     </inferredMetricsTieBreakers>
 </document>

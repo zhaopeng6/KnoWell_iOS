@@ -35,23 +35,4 @@ class Utilities {
             NSLog("SilentError: Cannot generate a QR code for the given string")
         }
     }
-    
-    static func getParseObjectFromObjectID(objId: String, local:Bool = false) -> PFObject? {
-        let query = PFQuery(className:"ECardInfo")
-        if local {
-            query.fromLocalDatastore()
-        }
-        query.getObjectInBackgroundWithId(objId).continueWithBlock({
-            (task: BFTask!) -> AnyObject! in
-            if task.error != nil {
-                // There was an error.
-                return task
-            }
-            
-            // task.result will be your game score
-            return task
-        })
-        
-        return nil
-    }
 }

@@ -26,7 +26,7 @@ class SelfinfoController: UIViewController, UITextFieldDelegate{
         }
         
         Utilities.setImageViewToQRCode(portraitImageView, qrString: "Hello")
-
+        
         if let pCompany = PFUser.currentUser()?["company"] as? String{
             self.companyTextField.text = pCompany
         }
