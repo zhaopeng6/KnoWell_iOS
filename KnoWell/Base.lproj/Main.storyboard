@@ -167,8 +167,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Card" id="XQt-Q2-uG9">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0K4-dz-DNI"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ANh-BJ-QSt"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0K4-dz-DNI">
+                            <connections>
+                                <segue destination="ywn-c0-rX6" kind="unwind" unwindAction="cancelToSelfInfoViewController:" id="YN8-8d-3ep"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ANh-BJ-QSt">
+                            <connections>
+                                <segue destination="ywn-c0-rX6" kind="unwind" unwindAction="saveCardDetail:" id="Ug5-Dy-mqM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="companyTextField" destination="kqJ-mT-dWQ" id="lt4-WR-lv0"/>
@@ -179,6 +187,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XC8-Rh-X7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ywn-c0-rX6" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="1F5-pF-Vlp">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="2uy-CZ-Ejq" id="k6X-8q-Mi2"/>
@@ -200,7 +209,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K3H-Hq-3kK" id="XhE-8p-zI6">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Obama" translatesAutoresizingMaskIntoConstraints="NO" id="KeQ-qj-2MR">
@@ -226,11 +235,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Card Library" id="dyE-jH-Uhh">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KgK-Cr-0iT"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KgK-Cr-0iT">
+                            <connections>
+                                <segue destination="4to-o5-ekp" kind="unwind" unwindAction="cancelToSelfInfoViewController:" id="uHM-y7-QhU"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="AN5-R6-JmM"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWA-P3-a8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4to-o5-ekp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2410" y="415"/>
         </scene>
@@ -277,10 +291,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Scan QR code" id="cxp-zK-cBC">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dlP-Cc-si2"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dlP-Cc-si2">
+                            <connections>
+                                <segue destination="1I3-7D-LpS" kind="unwind" unwindAction="cancelToSelfInfoViewController:" id="26m-Kh-fMc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="TJp-B3-xfh">
                             <connections>
-                                <segue destination="2uy-CZ-Ejq" kind="presentation" identifier="ScannedCardSegue" id="r9d-8g-dFa"/>
+                                <segue destination="1I3-7D-LpS" kind="unwind" unwindAction="saveCardDetail:" id="8hU-0L-7ud"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -289,8 +307,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYO-mS-Hlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1I3-7D-LpS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2339" y="1090"/>
+            <point key="canvasLocation" x="2410" y="1093"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gLx-15-Scg">
@@ -430,8 +449,8 @@
                                             <action selector="loginAction:" destination="SYS-XQ-UI6" eventType="touchUpInside" id="0qJ-Jq-K8K"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWq-nK-te0">
-                                        <rect key="frame" x="103" y="269" width="64" height="33"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWq-nK-te0">
+                                        <rect key="frame" x="103" y="268" width="64" height="33"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64" id="Azo-ic-6IF"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="Z6p-0U-AOe"/>
@@ -453,6 +472,7 @@
                                     <constraint firstItem="5NW-ID-q0L" firstAttribute="top" secondItem="gdY-m8-udV" secondAttribute="bottom" constant="23" id="Goq-lg-A2E"/>
                                     <constraint firstAttribute="centerX" secondItem="snF-1a-XeT" secondAttribute="centerX" constant="-0.75" id="JKB-Ee-Vl4"/>
                                     <constraint firstAttribute="centerY" secondItem="snF-1a-XeT" secondAttribute="centerY" id="Kbt-OB-r1U"/>
+                                    <constraint firstItem="vWq-nK-te0" firstAttribute="top" secondItem="FBa-81-yU9" secondAttribute="bottom" constant="9" id="NBw-Bw-tJG"/>
                                     <constraint firstAttribute="centerX" secondItem="m5Z-5e-KJu" secondAttribute="centerX" id="SYI-iX-MeF"/>
                                     <constraint firstItem="snF-1a-XeT" firstAttribute="centerX" secondItem="gdY-m8-udV" secondAttribute="centerX" constant="0.5" id="ZPE-dE-ovr"/>
                                     <constraint firstAttribute="centerX" secondItem="snF-1a-XeT" secondAttribute="centerX" constant="-0.5" id="Zaz-Fp-gCI"/>

@@ -57,6 +57,14 @@ class SelfinfoController: UIViewController, UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancelToSelfInfoViewController(segue:UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func saveCardDetail(segue:UIStoryboardSegue){
+        
+    }
+    
     
 }
 
