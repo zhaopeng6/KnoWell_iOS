@@ -209,7 +209,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K3H-Hq-3kK" id="XhE-8p-zI6">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Obama" translatesAutoresizingMaskIntoConstraints="NO" id="KeQ-qj-2MR">
@@ -304,12 +304,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="messageLabel" destination="f21-ln-ken" id="hea-kC-dWp"/>
+                        <segue destination="2uy-CZ-Ejq" kind="show" identifier="ScannedCardSegue" id="otG-gP-dUj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYO-mS-Hlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="1I3-7D-LpS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2410" y="1093"/>
+            <point key="canvasLocation" x="2438" y="1103"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gLx-15-Scg">
