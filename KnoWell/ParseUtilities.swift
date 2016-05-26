@@ -9,25 +9,30 @@
 import Foundation
 
 class ParseUtilities {
-    
-    static func getParseObjectFromObjectID(objId: String, local:Bool = false) -> PFObject? {
+
+    static func getParseObjectFromObjectID(objId: String?, local:Bool = false) -> PFObject? {
+        if (objId == nil) {
+            print("SilentError: Cannot get ECardInfo since objId is nill")
+            return nil
+        }
+
         let query = PFQuery(className:"ECardInfo")
         if local {
             query.fromLocalDatastore()
         }
-        query.getObjectInBackgroundWithId(objId).continueWithBlock({
-            (task: BFTask!) -> AnyObject! in
-            if task.error != nil {
-                // There was an error.
-                return task
-            }
-            
-            // task.result will be your game score
-            return task.result
-        })
-        
-        return nil
+
+        query.whereKey("userId", equalTo: objId!)
+
+        var toReturn:PFObject?
+        do {
+            toReturn = try query.getFirstObject()
+        } catch {
+            print("SilentWarning: Error while fetching " + objId!)
+        }
+
+        if (toReturn == nil) {
+            print("SilentWarning: returning nil for " + objId!)
+        }
+        return toReturn
     }
-    
-    
 }

@@ -19,11 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Local Datastore. For more info, go to
         // https://parse.com/docs/ios/guide#local-datastore
         Parse.enableLocalDatastore()
-        
+
         // Initialize Parse.
         Parse.setApplicationId("eXr5eE3ff6vTMkTqsWe373eVZbuOLtafn7mFwlI2",
-            clientKey: "Ud799nz6KKXZNqWS6LBgCZ2QDiKx894SpVcskkfj")
-        
+                               clientKey: "Ud799nz6KKXZNqWS6LBgCZ2QDiKx894SpVcskkfj")
+
         // Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         return true
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    
 }
 
