@@ -78,5 +78,18 @@ class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePicke
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SaveCardSegue" {
+            if let currentCard = Card.getCurrentUserCard() {
+                let fullName:String = self.nameTextField.text!
+                let fullNameArr = fullName.componentsSeparatedByString(" ")
+                let firstName:String = fullNameArr[0]
+                let lastName:String = fullNameArr[fullNameArr.endIndex-1]
+                // Get the new view controller using segue.destinationViewController.
+                toEditCard = Card(objId:currentCard.objID,userId:currentCard.userID,firstName: firstName, lastName: lastName, company:self.companyTextField.text, email:self.contactTextField.text, title:self.titleTextField.text, portrait:portraitImageField.image)
+            }
+            
+        }
+    }
 }

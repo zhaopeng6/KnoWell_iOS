@@ -174,7 +174,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ANh-BJ-QSt">
                             <connections>
-                                <segue destination="ywn-c0-rX6" kind="unwind" unwindAction="saveCardDetail:" id="Ug5-Dy-mqM"/>
+                                <segue destination="ywn-c0-rX6" kind="unwind" identifier="SaveCardSegue" unwindAction="saveCardDetail:" id="Ug5-Dy-mqM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -209,7 +209,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K3H-Hq-3kK" id="XhE-8p-zI6">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Obama" translatesAutoresizingMaskIntoConstraints="NO" id="KeQ-qj-2MR">

@@ -39,13 +39,11 @@ class Card {
     static var currentUserCard:Card?
 
     //Mark: Initialization
-    init?(objId: String, userId: String,
-          about: String?, message: String?, motto: String?,
-          city: String?, company: String?,
-          email: String?, facebook: String?, gplus: String?,
-          linkedin: String?, twitter: String?, web: String?,
-          title: String?, firstName: String?, lastName: String?, portrait: UIImage?,
-          phone: String?){
+    init?(objId: String, userId: String, firstName: String, lastName: String, about: String?=nil, message: String?=nil, motto: String?=nil,
+          city: String?=nil, company: String?=nil, email: String?=nil, facebook: String?=nil, gplus: String?=nil,
+          linkedin: String?=nil, twitter: String?=nil, web: String?=nil,
+          title: String?=nil,  portrait: UIImage?=nil,
+          phone: String?=nil){
 
         self.objID = objId
         self.userID = userId
@@ -65,8 +63,8 @@ class Card {
         self.web = web ?? ""
 
         self.title = title ?? ""
-        self.firstName = firstName ?? ""
-        self.lastName = lastName ?? ""
+        self.firstName = firstName
+        self.lastName = lastName
 
         self.phone = phone ?? ""
 
@@ -96,7 +94,9 @@ class Card {
 
         return Card(objId:pfObject!.objectId!,
                     userId:pfObject!["userId"] as! String,
-
+                    firstName: (pfObject!["firstName"] as? String)!,
+                    lastName: (pfObject!["lastName"] as? String)!,
+                    
                     about:pfObject!["about"] as? String,
                     message:pfObject!["message"] as? String,
                     motto:pfObject!["motto"] as? String,
@@ -110,10 +110,10 @@ class Card {
                     linkedin: pfObject!["linkedin"] as? String,
                     twitter: pfObject!["twitter"] as? String,
                     web: pfObject!["web"] as? String,
-
+                    
+                    
+                    
                     title: pfObject!["title"] as? String,
-                    firstName: pfObject!["firstName"] as? String,
-                    lastName: pfObject!["lastName"] as? String,
                     portrait:portraitImage,
                     phone: pfObject!["phone"] as? String)
     }

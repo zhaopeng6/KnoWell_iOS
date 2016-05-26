@@ -55,13 +55,26 @@ class SelfinfoController: UIViewController, UITextFieldDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func updateCard(newCard:Card) {
+        self.nameTextField.text = newCard.firstName + " " + newCard.lastName
+        self.companyTextField.text = newCard.company
+        self.titleTextField.text = newCard.title
+        self.contactTextField.text = newCard.email
+        self.portraitImageView.image = newCard.portrait 
+    }
 
     @IBAction func cancelToSelfInfoViewController(segue:UIStoryboardSegue) {
 
     }
 
     @IBAction func saveCardDetail(segue:UIStoryboardSegue){
-
+        let controller = segue.sourceViewController as! EditCardViewController
+        
+        // Pass the selected object to the new view controller.
+        updateCard(controller.toEditCard!)
+        
+        //save to database later
     }
 
 
