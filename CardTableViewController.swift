@@ -13,6 +13,12 @@ class CardTableViewController: UITableViewController {
     var filteredCards = [Card]()
     let searchController = UISearchController(searchResultsController: nil)
 
+    // array of cards converted into groups
+    var cardsGrouped = NSDictionary() as! [String : [String]]
+
+    // array of section titles
+    var sectionTitleList = [String]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,19 +27,69 @@ class CardTableViewController: UITableViewController {
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
 
-        cards.append(Card.getCurrentUserCard()!)
-        cards.append(Card.getCurrentUserCard()!)
-        cards.append(Card.getCurrentUserCard()!)
-        cards.append(Card.getCurrentUserCard()!)
-        cards.append(Card.getCurrentUserCard()!)
-        cards.append(Card.getCurrentUserCard()!)
-        cards.append(Card.getCurrentUserCard()!)
+
+        cards = Card.getCurrentUserContacts()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        cards.sortInPlace({
+            $0.firstName < $1.firstName
+        })
+
+        // split data into section
+        self.splitDataInToSection()
+
+    }
+
+
+    private func splitDataInToSection() {
+        // Get the list we are interested in
+        var currList : [Card]
+
+        if searchController.active && searchController.searchBar.text != "" {
+            currList = filteredCards
+        } else {
+            currList = cards
+        }
+
+        self.cardsGrouped.removeAll()
+        self.sectionTitleList.removeAll()
+
+        // set section title "" at initial
+        var sectionTitle: String = ""
+
+        // iterate all records from array
+        for i in 0..<currList.count {
+
+            // get current record
+            let currentRecord = currList[i]
+
+            // find first character from current record
+            let firstChar = currentRecord.firstName[currentRecord.firstName.startIndex]
+
+            // convert first character into string
+            let firstCharString = "\(firstChar)"
+
+            // if first character not match with past section title then create new section
+            if firstCharString != sectionTitle {
+
+                // set new title for section
+                sectionTitle = firstCharString
+
+                // add new section having key as section title and value as empty array of string
+                self.cardsGrouped[sectionTitle] = [String]()
+
+                // append title within section title list
+                self.sectionTitleList.append(sectionTitle)
+            }
+
+            // add record to the section
+            self.cardsGrouped[firstCharString]?.append(currentRecord.firstName)
+        }
+
     }
 
     func filterContentForSearchText(searchText: String, scope: String = "All") {
@@ -41,6 +97,7 @@ class CardTableViewController: UITableViewController {
             return card.firstName.lowercaseString.containsString(searchText.lowercaseString)
         }
 
+        splitDataInToSection()
         tableView.reloadData()
     }
 
@@ -52,64 +109,63 @@ class CardTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return cardsGrouped.count
+    }
+
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitleList[section]
+    }
+
+    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
+        return sectionTitleList
+    }
+
+    override func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
+        return index
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.active && searchController.searchBar.text != "" {
-            return filteredCards.count
-        }
-        return cards.count
+        // find section title
+        let sectionTitle = self.sectionTitleList[section]
+
+        // find card list for that section
+        let cardlist = self.cardsGrouped[sectionTitle]
+
+        // return count for fruits
+        return cardlist!.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("CardTableViewCell", forIndexPath: indexPath)
-        let card: Card
 
-        if searchController.active && searchController.searchBar.text != "" {
-            card = filteredCards[indexPath.row]
-        } else {
-            card = cards[indexPath.row]
-        }
-        cell.textLabel?.text = card.firstName
+
+        // Configure the cell...
+
+        // find section title
+        let sectionTitle = self.sectionTitleList[indexPath.section]
+
+        // find card list for given section title
+        let cardlist = self.cardsGrouped[sectionTitle]
+
+        // find card based on the row within section
+        cell.textLabel?.text = cardlist?[indexPath.row]
+
+        // return cell
         return cell
+
+
+
+
+        /*
+         let card: Card
+         if searchController.active && searchController.searchBar.text != "" {
+         card = filteredCards[indexPath.row]
+         } else {
+         card = cards[indexPath.row]
+         }
+         cell.textLabel?.text = card.firstName
+         return cell*/
     }
-
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-
-    /*
-     // Override to support editing the table view.
-     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-     if editingStyle == .Delete {
-     // Delete the row from the data source
-     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-     } else if editingStyle == .Insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-     }
-     */
-
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-
 
     // MARK: - Navigation
 
@@ -131,7 +187,7 @@ class CardTableViewController: UITableViewController {
             }
         }
     }
-
+    
 }
 
 extension CardTableViewController: UISearchResultsUpdating {
