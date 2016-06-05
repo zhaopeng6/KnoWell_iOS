@@ -274,21 +274,10 @@
                     <navigationItem key="navigationItem" title="Edit Card" id="XQt-Q2-uG9">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0K4-dz-DNI">
                             <connections>
-<<<<<<< HEAD
                                 <segue destination="PHQ-IY-Ql4" kind="unwind" unwindAction="cancelToSelfInfoViewController:" id="3I9-Hd-scf"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ANh-BJ-QSt"/>
-=======
-                                <segue destination="ywn-c0-rX6" kind="unwind" unwindAction="cancelToSelfInfoViewController:" id="YN8-8d-3ep"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ANh-BJ-QSt">
-                            <connections>
-                                <segue destination="ywn-c0-rX6" kind="unwind" identifier="SaveCardSegue" unwindAction="saveCardDetail:" id="Ug5-Dy-mqM"/>
-                            </connections>
-                        </barButtonItem>
->>>>>>> origin/master
                     </navigationItem>
                     <connections>
                         <outlet property="companyTextField" destination="kqJ-mT-dWQ" id="lt4-WR-lv0"/>
@@ -299,11 +288,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XC8-Rh-X7Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-<<<<<<< HEAD
                 <exit id="PHQ-IY-Ql4" userLabel="Exit" sceneMemberID="exit"/>
-=======
-                <exit id="ywn-c0-rX6" userLabel="Exit" sceneMemberID="exit"/>
->>>>>>> origin/master
                 <tapGestureRecognizer id="1F5-pF-Vlp">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="2uy-CZ-Ejq" id="k6X-8q-Mi2"/>
@@ -409,18 +394,10 @@
                     <navigationItem key="navigationItem" title="Scan QR code" id="cxp-zK-cBC">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dlP-Cc-si2">
                             <connections>
-<<<<<<< HEAD
                                 <segue destination="HcM-BD-8qu" kind="unwind" unwindAction="cancelToSelfInfoViewController:" id="5ED-3i-QHZ"/>
-=======
-                                <segue destination="1I3-7D-LpS" kind="unwind" unwindAction="cancelToSelfInfoViewController:" id="26m-Kh-fMc"/>
->>>>>>> origin/master
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="TJp-B3-xfh">
-                            <connections>
-                                <segue destination="1I3-7D-LpS" kind="unwind" unwindAction="saveCardDetail:" id="8hU-0L-7ud"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="TJp-B3-xfh"/>
                     </navigationItem>
                     <connections>
                         <outlet property="messageLabel" destination="f21-ln-ken" id="hea-kC-dWp"/>
@@ -428,11 +405,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYO-mS-Hlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-<<<<<<< HEAD
                 <exit id="HcM-BD-8qu" userLabel="Exit" sceneMemberID="exit"/>
-=======
-                <exit id="1I3-7D-LpS" userLabel="Exit" sceneMemberID="exit"/>
->>>>>>> origin/master
             </objects>
             <point key="canvasLocation" x="2438" y="1103"/>
         </scene>

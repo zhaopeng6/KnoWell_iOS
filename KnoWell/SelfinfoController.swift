@@ -16,8 +16,6 @@ class SelfinfoController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var titleTextField: UILabel!
     @IBOutlet weak var contactTextField: UILabel!
     @IBOutlet weak var portraitImageView: UIImageView!
-
-<<<<<<< HEAD
     
     @IBOutlet weak var maincardView: UIView!
     @IBOutlet weak var cardbackView: UIView!
@@ -55,19 +53,13 @@ class SelfinfoController: UIViewController, UITextFieldDelegate{
             flagFront = true
         }
     }
-    
-    
-=======
 
->>>>>>> origin/master
     override func viewDidLoad() {
         super.viewDidLoad()
         // Show the current visitor's username
         if let currentCard = Card.getCurrentUserCard() {
             self.nameTextField.text = currentCard.firstName
             self.companyTextField.text = currentCard.company
-
-<<<<<<< HEAD
             Utilities.setImageViewToQRCode(qrCodeView, qrString: currentCard.getQRCodeString())
         } else {
             logOutAction(self)
@@ -120,13 +112,6 @@ class SelfinfoController: UIViewController, UITextFieldDelegate{
     func someAction(sender:UITapGestureRecognizer){
         performSelector(#selector(SelfinfoController.flip), withObject: nil)
     }
-=======
-            Utilities.setImageViewToQRCode(portraitImageView, qrString: currentCard.getQRCodeString())
-        } else {
-            logOutAction(self)
-        }
-    }
->>>>>>> origin/master
 
     @IBAction func logOutAction(sender: AnyObject){
         // Send a request to log out a user
