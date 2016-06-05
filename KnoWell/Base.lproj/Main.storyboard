@@ -285,7 +285,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ANh-BJ-QSt">
                             <connections>
-                                <segue destination="ywn-c0-rX6" kind="unwind" unwindAction="saveCardDetail:" id="Ug5-Dy-mqM"/>
+                                <segue destination="ywn-c0-rX6" kind="unwind" identifier="SaveCardSegue" unwindAction="saveCardDetail:" id="Ug5-Dy-mqM"/>
                             </connections>
                         </barButtonItem>
 >>>>>>> origin/master
