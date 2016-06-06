@@ -22,9 +22,11 @@ class SelfinfoController: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         // Show the current visitor's username
         if let currentCard = Card.getCurrentUserCard() {
-            self.nameTextField.text = currentCard.firstName
+            self.nameTextField.text = currentCard.firstName + " " + currentCard.lastName
             self.companyTextField.text = currentCard.company
-
+            self.titleTextField.text = currentCard.title
+            self.contactTextField.text = currentCard.email
+            
             Utilities.setImageViewToQRCode(portraitImageView, qrString: currentCard.getQRCodeString())
         } else {
             logOutAction(self)
@@ -61,7 +63,8 @@ class SelfinfoController: UIViewController, UITextFieldDelegate{
         self.companyTextField.text = newCard.company
         self.titleTextField.text = newCard.title
         self.contactTextField.text = newCard.email
-        self.portraitImageView.image = newCard.portrait 
+         Utilities.setImageViewToQRCode(portraitImageView, qrString: newCard.getQRCodeString())
+        //self.portraitImageView.image = newCard.portrait
     }
 
     @IBAction func cancelToSelfInfoViewController(segue:UIStoryboardSegue) {

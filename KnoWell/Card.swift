@@ -136,5 +136,47 @@ class Card {
         }
         return currentUserCard
     }
+    
+    
+    static func saveCurrentUserCard(card:Card) {
+        if PFUser.currentUser()?.objectId == nil {
+            print("SilentError: Current User is nill because PFUser() objID is null")
+            return
+        }
+        
+        if let parseObj = ParseUtilities.getParseObjectFromObjectID((PFUser.currentUser()?.objectId)!) {
+            parseObj.setObject(card.company, forKey: "company")
+            parseObj.setObject(card.firstName, forKey: "firstName")
+            parseObj.setObject(card.lastName, forKey: "lastName")
+            parseObj.setObject(card.title, forKey: "title")
+            parseObj.setObject(card.email, forKey: "email")
+            
+            let imageData = card.portrait.lowestQualityJPEGNSData
+            
+            let imageFile = PFFile(data:imageData)
+        
+            
+            parseObj.setObject(imageFile!, forKey: "portrait")
+            
+            
+            parseObj.saveInBackgroundWithBlock { (succeeded,error) -> Void in
+                if succeeded {
+                    print("Object Uploaded")
+                }
+                else {
+                    print("Error: \(error) \(error!.userInfo)")
+                }
+            }
+        }
+    }
+    
 
+}
+extension UIImage {
+    var uncompressedPNGData: NSData      { return UIImagePNGRepresentation(self)!        }
+    var highestQualityJPEGNSData: NSData { return UIImageJPEGRepresentation(self, 1.0)!  }
+    var highQualityJPEGNSData: NSData    { return UIImageJPEGRepresentation(self, 0.75)! }
+    var mediumQualityJPEGNSData: NSData  { return UIImageJPEGRepresentation(self, 0.5)!  }
+    var lowQualityJPEGNSData: NSData     { return UIImageJPEGRepresentation(self, 0.25)! }
+    var lowestQualityJPEGNSData:NSData   { return UIImageJPEGRepresentation(self, 0.0)!  }
 }

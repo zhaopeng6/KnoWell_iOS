@@ -196,6 +196,37 @@
             </objects>
             <point key="canvasLocation" x="2410" y="-369"/>
         </scene>
+        <!--Note page-->
+        <scene sceneID="4SQ-Fu-hba">
+            <objects>
+                <viewController title="Note page" id="Qtb-st-FdF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VpV-Am-pJP"/>
+                        <viewControllerLayoutGuide type="bottom" id="dwz-aa-2ho"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1iu-VS-Rb7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Selected Card" id="woI-Vz-NVj">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cqb-lh-6yA">
+                            <connections>
+                                <segue destination="U6L-eH-J9j" kind="unwind" unwindAction="unwindToLogInScreen:" id="yIL-r1-IcP"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="RmZ-rm-eF8">
+                            <connections>
+                                <segue destination="U6L-eH-J9j" kind="unwind" unwindAction="unwindToLogInScreen:" id="Q9M-bj-hMy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FXz-uK-2Au" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="U6L-eH-J9j" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4041" y="415"/>
+        </scene>
         <!--Card Library-->
         <scene sceneID="jAk-74-6Rg">
             <objects>
@@ -225,7 +256,7 @@
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="CardTableViewCell"/>
                                 <connections>
-                                    <segue destination="2uy-CZ-Ejq" kind="show" identifier="ShowDetail" id="9O5-gC-sIA"/>
+                                    <segue destination="CWh-jA-57V" kind="show" id="W3T-Qx-6kQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -298,13 +329,12 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="TJp-B3-xfh">
                             <connections>
-                                <segue destination="1I3-7D-LpS" kind="unwind" unwindAction="saveCardDetail:" id="8hU-0L-7ud"/>
+                                <segue destination="CWh-jA-57V" kind="show" id="maL-K9-hR0"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="messageLabel" destination="f21-ln-ken" id="hea-kC-dWp"/>
-                        <segue destination="2uy-CZ-Ejq" kind="show" identifier="ScannedCardSegue" id="otG-gP-dUj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYO-mS-Hlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -524,12 +554,30 @@
             </objects>
             <point key="canvasLocation" x="-665" y="437"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DWh-jl-6LU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CWh-jA-57V" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gky-Wc-8Gr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qtb-st-FdF" kind="relationship" relationship="rootViewController" id="PuM-OC-kmd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewF-NI-cGI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3229" y="415"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Obama" width="110" height="137"/>
         <image name="whitecard" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9O5-gC-sIA"/>
+        <segue reference="maL-K9-hR0"/>
     </inferredMetricsTieBreakers>
 </document>

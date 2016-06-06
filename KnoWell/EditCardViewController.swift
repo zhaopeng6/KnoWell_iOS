@@ -21,9 +21,12 @@ class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePicke
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if let pName = PFUser.currentUser()?["name"] as? String {
-            self.nameTextField.text = pName
+        if let currentCard = Card.getCurrentUserCard() {
+            self.nameTextField.text = currentCard.firstName + " " + currentCard.lastName
+            self.companyTextField.text = currentCard.company
+            self.titleTextField.text = currentCard.title
+            self.contactTextField.text = currentCard.email
+            self.portraitImageField.image = currentCard.portrait
         }
         // Do any additional setup after loading the view.
     }
@@ -34,16 +37,6 @@ class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     }
 
 
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField:UITextField)->Bool {
         //hide the keyboard
@@ -52,6 +45,7 @@ class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     }
     func textFieldDidEndEditing(textField: UITextField) {
         nameTextField.text = "obama"
+
     }
 
     //Mark: Actions
@@ -82,13 +76,18 @@ class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePicke
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SaveCardSegue" {
             if let currentCard = Card.getCurrentUserCard() {
+        
                 let fullName:String = self.nameTextField.text!
                 let fullNameArr = fullName.componentsSeparatedByString(" ")
                 let firstName:String = fullNameArr[0]
                 let lastName:String = fullNameArr[fullNameArr.endIndex-1]
+                
+                print(firstName)
+                print(lastName)
                 // Get the new view controller using segue.destinationViewController.
                 toEditCard = Card(objId:currentCard.objID,userId:currentCard.userID,firstName: firstName, lastName: lastName, company:self.companyTextField.text, email:self.contactTextField.text, title:self.titleTextField.text, portrait:portraitImageField.image)
             }
+            Card.saveCurrentUserCard(toEditCard!)
             
         }
     }
