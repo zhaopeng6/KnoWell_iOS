@@ -37,6 +37,34 @@ class Card {
     var phone:String
 
     static var currentUserCard:Card?
+    static var currentEcardInfo:PFObject?
+
+    init(fName: String) {
+        self.objID = "Hello"
+        self.userID = "World"
+
+        self.about = ""
+        self.message =  ""
+        self.motto = ""
+
+        self.city = ""
+        self.company =  ""
+
+        self.email =  ""
+        self.facebook = ""
+        self.gplus = ""
+        self.linkedin = ""
+        self.twitter = ""
+        self.web = ""
+
+        self.title = ""
+        self.firstName = fName
+        self.lastName = ""
+
+        self.phone = ""
+
+        self.portrait = UIImage(named: "Obama")!
+    }
 
     //Mark: Initialization
     init?(objId: String, userId: String, firstName: String, lastName: String, about: String?=nil, message: String?=nil, motto: String?=nil,
@@ -125,9 +153,13 @@ class Card {
                 return nil
             }
 
-            if let parseObj = ParseUtilities.getParseObjectFromObjectID((PFUser.currentUser()?.objectId)!) {
+            if let parseObj = ParseUtilities.getECardInfoFromUserId((PFUser.currentUser()?.objectId)!) {
                 print("SilentError: Got " + parseObj.objectId!)
+                currentEcardInfo = parseObj
                 currentUserCard = getCardFromPFObject(parseObj)
+
+                // Also fetch all the contacts
+                ParseUtilities.getAllContactsLocal(parseObj, syncOnly: true)
             }
         }
 
@@ -171,6 +203,17 @@ class Card {
     }
     
 
+    static func getCurrentUserContacts() -> [Card] {
+        let ecardInfos:[PFObject] = ParseUtilities.getAllContactsLocal(currentEcardInfo)!
+        var cardsToReturn = [Card]()
+        for eInfo in ecardInfos {
+            cardsToReturn.append(getCardFromPFObject(eInfo)!)
+        }
+        
+        return cardsToReturn
+        
+    }
+    
 }
 extension UIImage {
     var uncompressedPNGData: NSData      { return UIImagePNGRepresentation(self)!        }
