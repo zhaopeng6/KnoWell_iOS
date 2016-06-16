@@ -176,7 +176,7 @@ class Card {
             return
         }
         
-        if let parseObj = ParseUtilities.getParseObjectFromObjectID((PFUser.currentUser()?.objectId)!) {
+        if let parseObj = ParseUtilities.getECardInfoFromUserId((PFUser.currentUser()?.objectId)!) {
             parseObj.setObject(card.company, forKey: "company")
             parseObj.setObject(card.firstName, forKey: "firstName")
             parseObj.setObject(card.lastName, forKey: "lastName")

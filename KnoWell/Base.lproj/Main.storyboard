@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SYS-XQ-UI6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SYS-XQ-UI6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -274,10 +274,14 @@
                     <navigationItem key="navigationItem" title="Edit Card" id="XQt-Q2-uG9">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0K4-dz-DNI">
                             <connections>
-                                <segue destination="PHQ-IY-Ql4" kind="unwind" unwindAction="cancelToSelfInfoViewController:" id="3I9-Hd-scf"/>
+                                <segue destination="PHQ-IY-Ql4" kind="unwind" unwindAction="cancelToSelfInfoViewController:" id="r7F-bY-6Km"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ANh-BJ-QSt"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ANh-BJ-QSt">
+                            <connections>
+                                <segue destination="PHQ-IY-Ql4" kind="unwind" identifier="SaveCardSegue" unwindAction="saveCardDetail:" id="FqV-0p-1GH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="companyTextField" destination="kqJ-mT-dWQ" id="lt4-WR-lv0"/>
@@ -297,37 +301,6 @@
             </objects>
             <point key="canvasLocation" x="2410" y="-369"/>
         </scene>
-        <!--Note page-->
-        <scene sceneID="4SQ-Fu-hba">
-            <objects>
-                <viewController title="Note page" id="Qtb-st-FdF" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="VpV-Am-pJP"/>
-                        <viewControllerLayoutGuide type="bottom" id="dwz-aa-2ho"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1iu-VS-Rb7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Selected Card" id="woI-Vz-NVj">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cqb-lh-6yA">
-                            <connections>
-                                <segue destination="U6L-eH-J9j" kind="unwind" unwindAction="unwindToLogInScreen:" id="yIL-r1-IcP"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="RmZ-rm-eF8">
-                            <connections>
-                                <segue destination="U6L-eH-J9j" kind="unwind" unwindAction="unwindToLogInScreen:" id="Q9M-bj-hMy"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FXz-uK-2Au" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="U6L-eH-J9j" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="4041" y="415"/>
-        </scene>
         <!--Card Library-->
         <scene sceneID="jAk-74-6Rg">
             <objects>
@@ -341,7 +314,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K3H-Hq-3kK" id="XhE-8p-zI6">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Obama" translatesAutoresizingMaskIntoConstraints="NO" id="KeQ-qj-2MR">
@@ -357,7 +330,7 @@
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="CardTableViewCell"/>
                                 <connections>
-                                    <segue destination="CWh-jA-57V" kind="show" id="W3T-Qx-6kQ"/>
+                                    <segue destination="2uy-CZ-Ejq" kind="show" identifier="ShowDetail" id="9O5-gC-sIA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -425,18 +398,14 @@
                     <navigationItem key="navigationItem" title="Scan QR code" id="cxp-zK-cBC">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dlP-Cc-si2">
                             <connections>
-                                <segue destination="1I3-7D-LpS" kind="unwind" unwindAction="cancelToSelfInfoViewController:" id="26m-Kh-fMc"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="TJp-B3-xfh">
-                            <connections>
-                                <segue destination="CWh-jA-57V" kind="show" id="maL-K9-hR0"/>
+                                <segue destination="HcM-BD-8qu" kind="unwind" unwindAction="cancelToSelfInfoViewController:" id="5ED-3i-QHZ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="TJp-B3-xfh"/>
                     </navigationItem>
                     <connections>
                         <outlet property="messageLabel" destination="f21-ln-ken" id="hea-kC-dWp"/>
+                        <segue destination="2uy-CZ-Ejq" kind="show" identifier="ScannedCardSegue" id="otG-gP-dUj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYO-mS-Hlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -656,31 +625,13 @@
             </objects>
             <point key="canvasLocation" x="-665" y="437"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="DWh-jl-6LU">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CWh-jA-57V" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gky-Wc-8Gr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Qtb-st-FdF" kind="relationship" relationship="rootViewController" id="PuM-OC-kmd"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ewF-NI-cGI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3229" y="415"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Obama" width="110" height="137"/>
         <image name="applelogo" width="222" height="253"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="otG-gP-dUj"/>
         <segue reference="wzI-cH-smx"/>
-        <segue reference="9O5-gC-sIA"/>
     </inferredMetricsTieBreakers>
 </document>
