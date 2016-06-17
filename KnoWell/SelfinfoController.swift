@@ -27,6 +27,35 @@ class SelfinfoController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var docBtn: UIButton!
     
+    @IBAction func docBtnClicked(sender: UIButton) {
+        var alert=UIAlertController(title: "Share Doc", message: "Share Doc Out", preferredStyle: UIAlertControllerStyle.Alert);
+        //default input textField (no configuration...)
+        alert.addTextFieldWithConfigurationHandler(nil);
+        //no event handler (just close dialog box)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: nil));
+        //event handler with closure
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: {(action:UIAlertAction) in
+            let fields = alert.textFields!;
+            print("Yes we can: "+fields[0].text!);
+        }));
+        presentViewController(alert, animated: true, completion: nil);
+    }
+    
+    @IBAction func shareBtnClicked(sender: UIButton) {
+        //
+        var alert=UIAlertController(title: "Share Card", message: "Share Card Out", preferredStyle: UIAlertControllerStyle.Alert);
+        //default input textField (no configuration...)
+        alert.addTextFieldWithConfigurationHandler(nil);
+        //no event handler (just close dialog box)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: nil));
+        //event handler with closure
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: {(action:UIAlertAction) in
+            let fields = alert.textFields!;
+            print("Yes we can: "+fields[0].text!);
+        }));
+        presentViewController(alert, animated: true, completion: nil);
+    }
+    
     var flagFront = true
     
     
@@ -78,37 +107,37 @@ class SelfinfoController: UIViewController, UITextFieldDelegate{
         let gesture = UITapGestureRecognizer(target: self, action: #selector(SelfinfoController.someAction(_:)))
         view.addGestureRecognizer(gesture)
         
-        let scanBtnImg = UIImage(named: "scan_button")
-        scanBtn.setImage(scanBtnImg, forState: UIControlState.Normal)
-        scanBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
-        
-        scanBtn.setTitle("Add Card\n(Scan QR)", forState: UIControlState.Normal)
-        scanBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        scanBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
-        
-        let searchBtnImg = UIImage(named: "search_button")
-        searchBtn.setImage(searchBtnImg, forState: UIControlState.Normal)
-        searchBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
-        
-        searchBtn.setTitle("Search\nCards", forState: UIControlState.Normal)
-        searchBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        searchBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
-        
-        let shareBtnImg = UIImage(named: "share_button")
-        shareBtn.setImage(shareBtnImg, forState: UIControlState.Normal)
-        shareBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
-        
-        shareBtn.setTitle("Share\nMy Card", forState: UIControlState.Normal)
-        shareBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        shareBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
-        
-        let docBtnImg = UIImage(named: "doc_button")
-        docBtn.setImage(docBtnImg, forState: UIControlState.Normal)
-        docBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
-        
-        docBtn.setTitle("Share\nMy Doc", forState: UIControlState.Normal)
-        docBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        docBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
+//        let scanBtnImg = UIImage(named: "scan_button")
+//        scanBtn.setImage(scanBtnImg, forState: UIControlState.Normal)
+//        scanBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
+//        
+//        scanBtn.setTitle("Add Card\n(Scan QR)", forState: UIControlState.Normal)
+//        scanBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+//        scanBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
+//        
+//        let searchBtnImg = UIImage(named: "search_button")
+//        searchBtn.setImage(searchBtnImg, forState: UIControlState.Normal)
+//        searchBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
+//        
+//        searchBtn.setTitle("Search\nCards", forState: UIControlState.Normal)
+//        searchBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+//        searchBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
+//        
+//        let shareBtnImg = UIImage(named: "share_button")
+//        shareBtn.setImage(shareBtnImg, forState: UIControlState.Normal)
+//        shareBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
+//        
+//        shareBtn.setTitle("Share\nMy Card", forState: UIControlState.Normal)
+//        shareBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+//        shareBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
+//        
+//        let docBtnImg = UIImage(named: "doc_button")
+//        docBtn.setImage(docBtnImg, forState: UIControlState.Normal)
+//        docBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
+//        
+//        docBtn.setTitle("Share\nMy Doc", forState: UIControlState.Normal)
+//        docBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+//        docBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
         
     }
     
