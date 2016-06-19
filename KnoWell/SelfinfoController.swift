@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class SelfinfoController: UIViewController, UITextFieldDelegate{
+class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate{
 
     //MARK:Properties
     @IBOutlet weak var nameTextField: UILabel!
@@ -27,32 +28,175 @@ class SelfinfoController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var docBtn: UIButton!
     
+    var textToShare = "";
+    
+    // A wrapper function to indicate whether or not a text message can be sent from the user's device
+    func canSendText() -> Bool {
+        return MFMessageComposeViewController.canSendText()
+    }
+    
+    // Configures and returns a MFMessageComposeViewController instance
+    func configuredMessageComposeViewController(msg:String) -> MFMessageComposeViewController {
+        let messageComposeVC = MFMessageComposeViewController()
+        messageComposeVC.messageComposeDelegate = self  //  Make sure to set this property to self, so that the controller can be dismissed!
+        messageComposeVC.recipients = [""]
+        messageComposeVC.body = msg
+        return messageComposeVC
+    }
+    
+    // MFMessageComposeViewControllerDelegate callback - dismisses the view controller when the user is finished with it
+    func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBAction func docBtnClicked(sender: UIButton) {
-        var alert=UIAlertController(title: "Share Doc", message: "Share Doc Out", preferredStyle: UIAlertControllerStyle.Alert);
+        
+        var receiverTextField : UITextField?;
+        let docName = "Resume";
+        
+        var alert=UIAlertController(title: "Share " + docName + " To ...", message: nil, preferredStyle: UIAlertControllerStyle.Alert);
         //default input textField (no configuration...)
-        alert.addTextFieldWithConfigurationHandler(nil);
-        //no event handler (just close dialog box)
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: nil));
-        //event handler with closure
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: {(action:UIAlertAction) in
-            let fields = alert.textFields!;
-            print("Yes we can: "+fields[0].text!);
-        }));
+        alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            // Enter the textfiled customization code here.
+            receiverTextField = textField
+            receiverTextField?.placeholder = "Who is this for?"
+        }
+        
+        func handlerLink(act:UIAlertAction) {
+            // it's a closure so we have a reference to the alert
+            let tf = alert.textFields![0];
+            
+            textToShare = "Hi " + tf.text! + ", please accept my card";
+            
+            let objectsToShare = [textToShare]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            activityVC.popoverPresentationController?.sourceView = sender
+            self.presentViewController(activityVC, animated: true, completion: nil)
+            
+            // print("User entered \(tf.text), tapped \(act.title)")
+        }
+        func handlerSMS(act:UIAlertAction){
+            // Make sure the device can send text messages
+            if (canSendText()) {
+                // Obtain a configured MFMessageComposeViewController
+                let tf = alert.textFields![0];
+                
+                textToShare = "Hi " + tf.text! + ", please accept my card";
+                let messageComposeVC = configuredMessageComposeViewController(textToShare)
+                
+                // Present the configured MFMessageComposeViewController instance
+                // Note that the dismissal of the VC will be handled by the messageComposer instance,
+                // since it implements the appropriate delegate call-back
+                presentViewController(messageComposeVC, animated: true, completion: nil)
+            } else {
+                // Let the user know if his/her device isn't able to send text messages
+                let errorAlert = UIAlertView(title: "Cannot Send Text Message", message: "Your device is not able to send text messages.", delegate: self, cancelButtonTitle: "OK")
+                errorAlert.show()
+            }
+        }
+        func handleEmail(act:UIAlertAction){
+            // this cannot be tested inside of browser, need real iphone
+            //http://stackoverflow.com/questions/25604552/i-have-real-misunderstanding-with-mfmailcomposeviewcontroller-in-swift-ios8-in
+            if MFMailComposeViewController.canSendMail() {
+                let mail = MFMailComposeViewController()
+                mail.mailComposeDelegate = self
+                mail.setToRecipients(["paul@hackingwithswift.com"])
+                mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+                
+                presentViewController(mail, animated: true, completion: nil)
+            } else {
+                // show failure alert
+            }
+        }
+        
+        let buttonLink = UIAlertAction(title: "Via Link", style: .Default, handler: handlerLink)
+        let buttonPhone = UIAlertAction(title: "Via Text Msg", style: .Default, handler: handlerSMS)
+        let buttonEmail = UIAlertAction(title: "Via Email", style: .Default, handler: handleEmail)
+        let buttonCancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
+            print("Cancel Button Pressed")
+        }
+        alert.addAction(buttonLink);
+        alert.addAction(buttonPhone);
+        alert.addAction(buttonEmail);
+        alert.addAction(buttonCancel);
+        
         presentViewController(alert, animated: true, completion: nil);
     }
     
     @IBAction func shareBtnClicked(sender: UIButton) {
+        
+        var receiverTextField : UITextField?;
         //
-        var alert=UIAlertController(title: "Share Card", message: "Share Card Out", preferredStyle: UIAlertControllerStyle.Alert);
+        var alert=UIAlertController(title: "Share My Card To ... ", message: nil,preferredStyle: UIAlertControllerStyle.Alert);
         //default input textField (no configuration...)
-        alert.addTextFieldWithConfigurationHandler(nil);
-        //no event handler (just close dialog box)
-        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: nil));
-        //event handler with closure
-        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: {(action:UIAlertAction) in
-            let fields = alert.textFields!;
-            print("Yes we can: "+fields[0].text!);
-        }));
+        alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            // Enter the textfiled customization code here.
+            receiverTextField = textField
+            receiverTextField?.placeholder = "Who is this for?"
+        }
+        func handlerLink(act:UIAlertAction) {
+            // it's a closure so we have a reference to the alert
+            let tf = alert.textFields![0];
+           
+            textToShare = "Hi " + tf.text! + ", please accept my card";
+            
+                let objectsToShare = [textToShare]
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                
+                activityVC.popoverPresentationController?.sourceView = sender
+                self.presentViewController(activityVC, animated: true, completion: nil)
+            
+            // print("User entered \(tf.text), tapped \(act.title)")
+        }
+        func handlerSMS(act:UIAlertAction){
+            // Make sure the device can send text messages
+            if (canSendText()) {
+                // Obtain a configured MFMessageComposeViewController
+                let tf = alert.textFields![0];
+                
+                textToShare = "Hi " + tf.text! + ", please accept my card";
+                let messageComposeVC = configuredMessageComposeViewController(textToShare)
+                
+                // Present the configured MFMessageComposeViewController instance
+                // Note that the dismissal of the VC will be handled by the messageComposer instance,
+                // since it implements the appropriate delegate call-back
+                presentViewController(messageComposeVC, animated: true, completion: nil)
+            } else {
+                // Let the user know if his/her device isn't able to send text messages
+                let errorAlert = UIAlertView(title: "Cannot Send Text Message", message: "Your device is not able to send text messages.", delegate: self, cancelButtonTitle: "OK")
+                errorAlert.show()
+            }
+        }
+        func handleEmail(act:UIAlertAction){
+            if MFMailComposeViewController.canSendMail() {
+                let mail = MFMailComposeViewController()
+                mail.mailComposeDelegate = self
+                mail.setToRecipients(["paul@hackingwithswift.com"])
+                mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+                
+                presentViewController(mail, animated: true, completion: nil)
+            } else {
+                // show failure alert
+            }
+        }
+        
+        
+        let buttonLink = UIAlertAction(title: "Via Link", style: .Default, handler: handlerLink)
+        let buttonPhone = UIAlertAction(title: "Via Text Msg", style: .Default, handler: handlerSMS)
+        let buttonEmail = UIAlertAction(title: "Via Email", style: .Default, handler: handleEmail)
+        let buttonCancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
+            print("Cancel Button Pressed")
+        }
+        alert.addAction(buttonLink);
+        alert.addAction(buttonPhone);
+        alert.addAction(buttonEmail);
+        alert.addAction(buttonCancel);
+        
         presentViewController(alert, animated: true, completion: nil);
     }
     
