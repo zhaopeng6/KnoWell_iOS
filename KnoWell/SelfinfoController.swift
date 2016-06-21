@@ -17,24 +17,24 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
     @IBOutlet weak var titleTextField: UILabel!
     @IBOutlet weak var contactTextField: UILabel!
     @IBOutlet weak var portraitImageView: UIImageView!
-    
+
     @IBOutlet weak var maincardView: UIView!
     @IBOutlet weak var cardbackView: UIView!
-    
+
     @IBOutlet weak var qrCodeView: UIImageView!
-    
+
     @IBOutlet weak var scanBtn: UIButton!
     @IBOutlet weak var searchBtn: UIButton!
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var docBtn: UIButton!
-    
+
     var textToShare = "";
-    
+
     // A wrapper function to indicate whether or not a text message can be sent from the user's device
     func canSendText() -> Bool {
         return MFMessageComposeViewController.canSendText()
     }
-    
+
     // Configures and returns a MFMessageComposeViewController instance
     func configuredMessageComposeViewController(msg:String) -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()
@@ -43,21 +43,21 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
         messageComposeVC.body = msg
         return messageComposeVC
     }
-    
+
     // MFMessageComposeViewControllerDelegate callback - dismisses the view controller when the user is finished with it
     func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
     @IBAction func docBtnClicked(sender: UIButton) {
-        
+
         var receiverTextField : UITextField?;
         let docName = "Resume";
-        
+
         var alert=UIAlertController(title: "Share " + docName + " To ...", message: nil, preferredStyle: UIAlertControllerStyle.Alert);
         //default input textField (no configuration...)
         alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
@@ -65,19 +65,19 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
             receiverTextField = textField
             receiverTextField?.placeholder = "Who is this for?"
         }
-        
+
         func handlerLink(act:UIAlertAction) {
             // it's a closure so we have a reference to the alert
             let tf = alert.textFields![0];
-            
+
             textToShare = "Hi " + tf.text! + ", please accept my card";
-            
+
             let objectsToShare = [textToShare]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-            
+
             activityVC.popoverPresentationController?.sourceView = sender
             self.presentViewController(activityVC, animated: true, completion: nil)
-            
+
             // print("User entered \(tf.text), tapped \(act.title)")
         }
         func handlerSMS(act:UIAlertAction){
@@ -85,10 +85,10 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
             if (canSendText()) {
                 // Obtain a configured MFMessageComposeViewController
                 let tf = alert.textFields![0];
-                
+
                 textToShare = "Hi " + tf.text! + ", please accept my card";
                 let messageComposeVC = configuredMessageComposeViewController(textToShare)
-                
+
                 // Present the configured MFMessageComposeViewController instance
                 // Note that the dismissal of the VC will be handled by the messageComposer instance,
                 // since it implements the appropriate delegate call-back
@@ -107,13 +107,13 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
                 mail.mailComposeDelegate = self
                 mail.setToRecipients(["paul@hackingwithswift.com"])
                 mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
-                
+
                 presentViewController(mail, animated: true, completion: nil)
             } else {
                 // show failure alert
             }
         }
-        
+
         let buttonLink = UIAlertAction(title: "Via Link", style: .Default, handler: handlerLink)
         let buttonPhone = UIAlertAction(title: "Via Text Msg", style: .Default, handler: handlerSMS)
         let buttonEmail = UIAlertAction(title: "Via Email", style: .Default, handler: handleEmail)
@@ -124,12 +124,12 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
         alert.addAction(buttonPhone);
         alert.addAction(buttonEmail);
         alert.addAction(buttonCancel);
-        
+
         presentViewController(alert, animated: true, completion: nil);
     }
-    
+
     @IBAction func shareBtnClicked(sender: UIButton) {
-        
+
         var receiverTextField : UITextField?;
         //
         var alert=UIAlertController(title: "Share My Card To ... ", message: nil,preferredStyle: UIAlertControllerStyle.Alert);
@@ -142,15 +142,15 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
         func handlerLink(act:UIAlertAction) {
             // it's a closure so we have a reference to the alert
             let tf = alert.textFields![0];
-           
+
             textToShare = "Hi " + tf.text! + ", please accept my card";
-            
-                let objectsToShare = [textToShare]
-                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-                
-                activityVC.popoverPresentationController?.sourceView = sender
-                self.presentViewController(activityVC, animated: true, completion: nil)
-            
+
+            let objectsToShare = [textToShare]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+
+            activityVC.popoverPresentationController?.sourceView = sender
+            self.presentViewController(activityVC, animated: true, completion: nil)
+
             // print("User entered \(tf.text), tapped \(act.title)")
         }
         func handlerSMS(act:UIAlertAction){
@@ -158,10 +158,10 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
             if (canSendText()) {
                 // Obtain a configured MFMessageComposeViewController
                 let tf = alert.textFields![0];
-                
+
                 textToShare = "Hi " + tf.text! + ", please accept my card";
                 let messageComposeVC = configuredMessageComposeViewController(textToShare)
-                
+
                 // Present the configured MFMessageComposeViewController instance
                 // Note that the dismissal of the VC will be handled by the messageComposer instance,
                 // since it implements the appropriate delegate call-back
@@ -178,14 +178,14 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
                 mail.mailComposeDelegate = self
                 mail.setToRecipients(["paul@hackingwithswift.com"])
                 mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
-                
+
                 presentViewController(mail, animated: true, completion: nil)
             } else {
                 // show failure alert
             }
         }
-        
-        
+
+
         let buttonLink = UIAlertAction(title: "Via Link", style: .Default, handler: handlerLink)
         let buttonPhone = UIAlertAction(title: "Via Text Msg", style: .Default, handler: handlerSMS)
         let buttonEmail = UIAlertAction(title: "Via Email", style: .Default, handler: handleEmail)
@@ -196,21 +196,21 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
         alert.addAction(buttonPhone);
         alert.addAction(buttonEmail);
         alert.addAction(buttonCancel);
-        
+
         presentViewController(alert, animated: true, completion: nil);
     }
-    
+
     var flagFront = true
-    
-    
+
+
     func flip() {
         let transitionOptions: UIViewAnimationOptions = [.TransitionFlipFromRight, .ShowHideTransitionViews]
-        
+
         if(flagFront){
             UIView.transitionWithView(maincardView, duration: 1.0, options: transitionOptions, animations: {
                 self.maincardView.hidden = true
                 }, completion: nil)
-            
+
             UIView.transitionWithView(cardbackView, duration: 1.0, options: transitionOptions, animations: {
                 self.cardbackView.hidden = false
                 }, completion: nil)
@@ -219,7 +219,7 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
             UIView.transitionWithView(maincardView, duration: 1.0, options: transitionOptions, animations: {
                 self.maincardView.hidden = false
                 }, completion: nil)
-            
+
             UIView.transitionWithView(cardbackView, duration: 1.0, options: transitionOptions, animations: {
                 self.cardbackView.hidden = true
                 }, completion: nil)
@@ -235,56 +235,56 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
             self.companyTextField.text = currentCard.company
             self.titleTextField.text = currentCard.title
             self.contactTextField.text = currentCard.email
-           
+
             Utilities.setImageViewToQRCode(qrCodeView, qrString: currentCard.getQRCodeString())
         } else {
             logOutAction(self)
         }
-        
+
         flagFront = true
         cardbackView.hidden = true
-        
+
         view.addSubview(maincardView)
         view.addSubview(cardbackView)
-        
+
         // 3. add action to myView
         let gesture = UITapGestureRecognizer(target: self, action: #selector(SelfinfoController.someAction(_:)))
         view.addGestureRecognizer(gesture)
-        
-//        let scanBtnImg = UIImage(named: "scan_button")
-//        scanBtn.setImage(scanBtnImg, forState: UIControlState.Normal)
-//        scanBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
-//        
-//        scanBtn.setTitle("Add Card\n(Scan QR)", forState: UIControlState.Normal)
-//        scanBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-//        scanBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
-//        
-//        let searchBtnImg = UIImage(named: "search_button")
-//        searchBtn.setImage(searchBtnImg, forState: UIControlState.Normal)
-//        searchBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
-//        
-//        searchBtn.setTitle("Search\nCards", forState: UIControlState.Normal)
-//        searchBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-//        searchBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
-//        
-//        let shareBtnImg = UIImage(named: "share_button")
-//        shareBtn.setImage(shareBtnImg, forState: UIControlState.Normal)
-//        shareBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
-//        
-//        shareBtn.setTitle("Share\nMy Card", forState: UIControlState.Normal)
-//        shareBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-//        shareBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
-//        
-//        let docBtnImg = UIImage(named: "doc_button")
-//        docBtn.setImage(docBtnImg, forState: UIControlState.Normal)
-//        docBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
-//        
-//        docBtn.setTitle("Share\nMy Doc", forState: UIControlState.Normal)
-//        docBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-//        docBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
-        
+
+        //        let scanBtnImg = UIImage(named: "scan_button")
+        //        scanBtn.setImage(scanBtnImg, forState: UIControlState.Normal)
+        //        scanBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
+        //
+        //        scanBtn.setTitle("Add Card\n(Scan QR)", forState: UIControlState.Normal)
+        //        scanBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        //        scanBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
+        //
+        //        let searchBtnImg = UIImage(named: "search_button")
+        //        searchBtn.setImage(searchBtnImg, forState: UIControlState.Normal)
+        //        searchBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
+        //
+        //        searchBtn.setTitle("Search\nCards", forState: UIControlState.Normal)
+        //        searchBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        //        searchBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
+        //
+        //        let shareBtnImg = UIImage(named: "share_button")
+        //        shareBtn.setImage(shareBtnImg, forState: UIControlState.Normal)
+        //        shareBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
+        //
+        //        shareBtn.setTitle("Share\nMy Card", forState: UIControlState.Normal)
+        //        shareBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        //        shareBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
+        //
+        //        let docBtnImg = UIImage(named: "doc_button")
+        //        docBtn.setImage(docBtnImg, forState: UIControlState.Normal)
+        //        docBtn.imageEdgeInsets = UIEdgeInsets(top:40, left:0, bottom:0, right:120)
+        //
+        //        docBtn.setTitle("Share\nMy Doc", forState: UIControlState.Normal)
+        //        docBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        //        docBtn.titleEdgeInsets = UIEdgeInsets(top:20, left:-0, bottom:10, right:10)
+
     }
-    
+
     func someAction(sender:UITapGestureRecognizer){
         performSelector(#selector(SelfinfoController.flip), withObject: nil)
     }
@@ -313,13 +313,13 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func updateCard(newCard:Card) {
         self.nameTextField.text = newCard.firstName + " " + newCard.lastName
         self.companyTextField.text = newCard.company
         self.titleTextField.text = newCard.title
         self.contactTextField.text = newCard.email
-         Utilities.setImageViewToQRCode(portraitImageView, qrString: newCard.getQRCodeString())
+        Utilities.setImageViewToQRCode(portraitImageView, qrString: newCard.getQRCodeString())
         //self.portraitImageView.image = newCard.portrait
     }
 
@@ -335,7 +335,5 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
         
         //save to database later
     }
-
-
 }
 

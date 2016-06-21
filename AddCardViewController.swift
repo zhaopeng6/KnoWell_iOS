@@ -29,13 +29,11 @@ class AddCardViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         let captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         var input: AnyObject!
         // Get an instance of the AVCaptureDeviceInput class using the previous device object.
-        var error:NSError?
         do {
             input = try AVCaptureDeviceInput(device: captureDevice)
         } catch _ {
             // If any error occurs, simply log the description of it and don't continue any more.
             performSegueWithIdentifier("ScannedCardSegue", sender: nil)
-            error = nil
             return
         }
 
@@ -104,7 +102,6 @@ class AddCardViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
 
     // MARK: - Navigation
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ScannedCardSegue" {
             // Get the new view controller using segue.destinationViewController.
@@ -114,5 +111,5 @@ class AddCardViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             controller.toEditCard = Card.getCurrentUserCard()
         }
     }
-
+    
 }

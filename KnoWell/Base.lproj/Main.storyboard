@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SYS-XQ-UI6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SYS-XQ-UI6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -133,7 +133,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="D1S-MK-njJ" kind="presentation" id="wzI-cH-smx"/>
+                                    <segue destination="rxR-77-gJW" kind="presentation" identifier="cardListSegue" id="cLf-2v-kBg"/>
                                 </connections>
                             </button>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="redraw" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymt-Cj-xAB" userLabel="docBtn">
@@ -311,7 +311,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K3H-Hq-3kK" id="XhE-8p-zI6">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Obama" translatesAutoresizingMaskIntoConstraints="NO" id="KeQ-qj-2MR">
@@ -348,7 +348,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWA-P3-a8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4to-o5-ekp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2410" y="415"/>
+            <point key="canvasLocation" x="3429" y="431"/>
         </scene>
         <!--Scan QR code-->
         <scene sceneID="LZf-lv-MUZ">
@@ -408,7 +408,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYO-mS-Hlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="HcM-BD-8qu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2438" y="1103"/>
+            <point key="canvasLocation" x="2854.5" y="1103"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gLx-15-Scg">
@@ -426,7 +426,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdU-Qj-Ixl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="415"/>
+            <point key="canvasLocation" x="1747.5" y="431"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hav-M1-ehk">
@@ -480,7 +480,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9MU-mo-KL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="1119"/>
+            <point key="canvasLocation" x="1612.5" y="1103"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ii8-fU-bZP">
@@ -634,7 +634,6 @@
         <image name="share_button" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="otG-gP-dUj"/>
-        <segue reference="wzI-cH-smx"/>
+        <segue reference="9O5-gC-sIA"/>
     </inferredMetricsTieBreakers>
 </document>
