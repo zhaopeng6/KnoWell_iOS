@@ -8,13 +8,15 @@
 
 import UIKit
 
-class CardTableViewController: UITableViewController {
+class CardTableViewController: UITableViewController, UISearchBarDelegate {
     var cards = [Card]()
     var filteredCards = [Card]()
-    let searchController = UISearchController(searchResultsController: nil)
+    var searchController: UISearchController!
+
+    var shouldShowSearchResults: Bool = false
 
     // array of cards converted into groups
-    var cardsGrouped = NSDictionary() as! [String : [String]]
+    var cardsGrouped = NSDictionary() as! [String : [Card]]
 
     // array of section titles
     var sectionTitleList = [String]()
@@ -22,10 +24,9 @@ class CardTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
+        configureSearchController()
+
         definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
 
 
         cards = Card.getCurrentUserContacts()
@@ -44,6 +45,15 @@ class CardTableViewController: UITableViewController {
 
     }
 
+    func configureSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search here ..."
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.delegate = self
+        tableView.tableHeaderView = searchController.searchBar
+    }
 
     private func splitDataInToSection() {
         // Get the list we are interested in
@@ -80,14 +90,14 @@ class CardTableViewController: UITableViewController {
                 sectionTitle = firstCharString
 
                 // add new section having key as section title and value as empty array of string
-                self.cardsGrouped[sectionTitle] = [String]()
+                self.cardsGrouped[sectionTitle] = [Card]()
 
                 // append title within section title list
                 self.sectionTitleList.append(sectionTitle)
             }
 
             // add record to the section
-            self.cardsGrouped[firstCharString]?.append(currentRecord.firstName)
+            self.cardsGrouped[firstCharString]?.append(currentRecord)
         }
 
     }
@@ -136,7 +146,7 @@ class CardTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CardTableViewCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("CardTableViewCell", forIndexPath: indexPath) as! CardTableViewCell
 
 
         // Configure the cell...
@@ -148,23 +158,15 @@ class CardTableViewController: UITableViewController {
         let cardlist = self.cardsGrouped[sectionTitle]
 
         // find card based on the row within section
-        cell.textLabel?.text = cardlist?[indexPath.row]
+        let currentCard = cardlist?[indexPath.row]
+
+        cell.nameField?.text = (currentCard?.firstName)! + " " + (currentCard?.lastName)!
+        cell.firstDescField.text = currentCard?.company
+        cell.secondDescField.text = currentCard?.city
+        cell.imageField.image = currentCard?.portrait
 
         // return cell
         return cell
-
-
-
-
-        /*
-         let card: Card
-         if searchController.active && searchController.searchBar.text != "" {
-         card = filteredCards[indexPath.row]
-         } else {
-         card = cards[indexPath.row]
-         }
-         cell.textLabel?.text = card.firstName
-         return cell*/
     }
 
     // MARK: - Navigation
@@ -174,7 +176,7 @@ class CardTableViewController: UITableViewController {
         if segue.identifier == "ShowDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let card: Card
-                if searchController.active && searchController.searchBar.text != "" {
+                if shouldShowSearchResults {
                     card = filteredCards[indexPath.row]
                 } else {
                     card = cards[indexPath.row]
@@ -193,5 +195,25 @@ class CardTableViewController: UITableViewController {
 extension CardTableViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
+    }
+
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        shouldShowSearchResults = true
+        tableView.reloadData()
+    }
+
+
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        shouldShowSearchResults = false
+        tableView.reloadData()
+    }
+
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        if !shouldShowSearchResults {
+            shouldShowSearchResults = true
+            tableView.reloadData()
+        }
+
+        searchController.searchBar.resignFirstResponder()
     }
 }

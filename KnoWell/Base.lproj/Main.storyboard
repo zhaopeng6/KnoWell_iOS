@@ -306,9 +306,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="h9r-gr-CWy">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="D1S-MK-njJ" id="02w-Zu-cgs"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CardTableViewCell" id="K3H-Hq-3kK" customClass="CardTableViewCell" customModule="KnoWell" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K3H-Hq-3kK" id="XhE-8p-zI6">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
@@ -317,16 +325,55 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Obama" translatesAutoresizingMaskIntoConstraints="NO" id="KeQ-qj-2MR">
                                             <rect key="frame" x="0.0" y="0.0" width="89" height="89"/>
                                         </imageView>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iwb-JR-70I">
-                                            <rect key="frame" x="97" y="30" width="495" height="30"/>
-                                            <accessibility key="accessibilityConfiguration" identifier="Name"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76B-Bv-4Yg">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="97" y="8" width="295" height="21"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4m-9g-rAC">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="97" y="31" width="295" height="21"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Jd-XW-R3h">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="97" y="55" width="295" height="21"/>
+                                            </variation>
+                                        </label>
                                     </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="76B-Bv-4Yg"/>
+                                            <exclude reference="g4m-9g-rAC"/>
+                                            <exclude reference="3Jd-XW-R3h"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="76B-Bv-4Yg"/>
+                                            <include reference="g4m-9g-rAC"/>
+                                            <include reference="3Jd-XW-R3h"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="CardTableViewCell"/>
                                 <connections>
+                                    <outlet property="firstDescField" destination="g4m-9g-rAC" id="SDY-FM-xeg"/>
+                                    <outlet property="imageField" destination="KeQ-qj-2MR" id="THb-VC-bKV"/>
+                                    <outlet property="nameField" destination="76B-Bv-4Yg" id="vCy-aE-uvG"/>
+                                    <outlet property="secondDescField" destination="3Jd-XW-R3h" id="nri-r8-viq"/>
                                     <segue destination="2uy-CZ-Ejq" kind="show" identifier="ShowDetail" id="9O5-gC-sIA"/>
                                 </connections>
                             </tableViewCell>
@@ -344,9 +391,21 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="AN5-R6-JmM"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="ePK-vX-pPI" id="wER-Lc-T9G"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PWA-P3-a8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4to-o5-ekp" userLabel="Exit" sceneMemberID="exit"/>
+                <searchDisplayController id="ePK-vX-pPI">
+                    <connections>
+                        <outlet property="delegate" destination="D1S-MK-njJ" id="66P-ec-XmS"/>
+                        <outlet property="searchBar" destination="h9r-gr-CWy" id="2yk-P1-Mm2"/>
+                        <outlet property="searchContentsController" destination="D1S-MK-njJ" id="qwm-m2-0Tl"/>
+                        <outlet property="searchResultsDataSource" destination="D1S-MK-njJ" id="WtX-Ad-lWO"/>
+                        <outlet property="searchResultsDelegate" destination="D1S-MK-njJ" id="eg7-Bf-Bff"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="3429" y="431"/>
         </scene>
