@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate{
+class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate {
 
     //MARK:Properties
     @IBOutlet weak var nameTextField: UILabel!
@@ -28,7 +28,8 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var docBtn: UIButton!
 
-    var textToShare = "";
+    var textToShare = ""
+    var progressViewController:ProgressViewController = ProgressViewController(message: "Loading Profile...")
 
     // A wrapper function to indicate whether or not a text message can be sent from the user's device
     func canSendText() -> Bool {
@@ -227,25 +228,43 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
         }
     }
 
+    func setUIToCard(currentCard:Card) {
+        self.nameTextField.text = currentCard.firstName + " " + currentCard.lastName
+        self.companyTextField.text = currentCard.company
+        self.titleTextField.text = currentCard.title
+        self.contactTextField.text = currentCard.email
+
+        Utilities.setImageViewToQRCode(qrCodeView, qrString: currentCard.getQRCodeString())
+
+        progressViewController.dismissViewControllerAnimated(true, completion: nil)
+        flip()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Show the current visitor's username
-        if let currentCard = Card.getCurrentUserCard() {
-            self.nameTextField.text = currentCard.firstName + " " + currentCard.lastName
-            self.companyTextField.text = currentCard.company
-            self.titleTextField.text = currentCard.title
-            self.contactTextField.text = currentCard.email
+        presentViewController(progressViewController, animated: true, completion: nil)
 
-            Utilities.setImageViewToQRCode(qrCodeView, qrString: currentCard.getQRCodeString())
-        } else {
-            logOutAction(self)
-        }
+        flagFront = false
+        cardbackView.hidden = false
 
-        flagFront = true
-        cardbackView.hidden = true
-
-        view.addSubview(maincardView)
         view.addSubview(cardbackView)
+        view.addSubview(maincardView)
+
+        var currentCard:Card?
+        // Show the current visitor's username
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { [unowned self] in
+            currentCard = Card.getCurrentUserCard()
+
+            if (currentCard != nil) {
+                dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                    self.setUIToCard(currentCard!)
+                }
+            } else {
+                dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                    self.logOutAction(self)
+                }
+            }
+        }
 
         // 3. add action to myView
         let gesture = UITapGestureRecognizer(target: self, action: #selector(SelfinfoController.someAction(_:)))
@@ -322,11 +341,11 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
         Utilities.setImageViewToQRCode(portraitImageView, qrString: newCard.getQRCodeString())
         //self.portraitImageView.image = newCard.portrait
     }
-
+    
     @IBAction func cancelToSelfInfoViewController(segue:UIStoryboardSegue) {
-
+        
     }
-
+    
     @IBAction func saveCardDetail(segue:UIStoryboardSegue){
         let controller = segue.sourceViewController as! EditCardViewController
         
