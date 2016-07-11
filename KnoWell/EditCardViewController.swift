@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate{
 
     // Mark: properties
     @IBOutlet weak var nameTextField: UITextField!
@@ -96,7 +97,7 @@ class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePicke
             buttonAdd.setTitle("Add",forState: .Normal)
             buttonAdd.tag = 6
             buttonAdd.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 0.5)
-            buttonAdd.addTarget(self, action: #selector(buttonAction),forControlEvents: .TouchUpInside)
+        buttonAdd.addTarget(self, action: #selector(addBtnClicked),forControlEvents: .TouchUpInside)
             self.view.addSubview(buttonAdd)
         }
     
@@ -141,6 +142,33 @@ class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePicke
         // Dismiss the picker.
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func addBtnClicked(sender: IdentifiedButton) {
+        
+        var receiverTextField : UITextField?;
+        //
+        var alert=UIAlertController(title: "Adding additional information ", message: nil,preferredStyle: UIAlertControllerStyle.Alert);
+
+        func handleEmail(act:UIAlertAction){
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["paul@hackingwithswift.com"])
+            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+                
+            presentViewController(mail, animated: true, completion: nil)
+        }
+        
+        
+        let buttonEmail = UIAlertAction(title: "Via Email", style: .Default, handler: handleEmail)
+        let buttonCancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
+            print("Cancel Button Pressed")
+        }
+        alert.addAction(buttonEmail);
+        alert.addAction(buttonCancel);
+        
+        presentViewController(alert, animated: true, completion: nil);
+    }
+
     
     //Mark:Actions
     func buttonAction(sender: IdentifiedButton!){
