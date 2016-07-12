@@ -28,21 +28,27 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
 
         definesPresentationContext = true
 
+        // Load the contacts in the background
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { [unowned self] in
+            self.cards = Card.getCurrentUserContacts()
 
-        cards = Card.getCurrentUserContacts()
+            self.cards.sortInPlace({
+                $0.firstName < $1.firstName
+            })
+
+            // split data into section
+            self.splitDataInToSection()
+
+            dispatch_async(dispatch_get_main_queue()) { [unowned self] in
+                self.tableView.reloadData()
+            }
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        cards.sortInPlace({
-            $0.firstName < $1.firstName
-        })
-
-        // split data into section
-        self.splitDataInToSection()
-
     }
 
     func configureSearchController() {
@@ -189,7 +195,7 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
             }
         }
     }
-    
+
 }
 
 extension CardTableViewController: UISearchResultsUpdating {
@@ -207,13 +213,13 @@ extension CardTableViewController: UISearchResultsUpdating {
         shouldShowSearchResults = false
         tableView.reloadData()
     }
-
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         if !shouldShowSearchResults {
             shouldShowSearchResults = true
             tableView.reloadData()
         }
-
+        
         searchController.searchBar.resignFirstResponder()
     }
 }
