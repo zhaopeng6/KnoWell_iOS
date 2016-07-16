@@ -58,7 +58,20 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
         searchController.searchBar.placeholder = "Search here ..."
         searchController.searchBar.sizeToFit()
         searchController.searchBar.delegate = self
-        tableView.tableHeaderView = searchController.searchBar
+        // tableView.tableHeaderView = searchController.searchBar
+
+        self.searchController.hidesNavigationBarDuringPresentation = false;
+        self.definesPresentationContext = false;
+
+        // the UIViewController comes with a navigationItem property
+        // this will automatically be initialized for you if when the
+        // view controller is added to a navigation controller's stack
+        // you just need to set the titleView to be the search bar
+        navigationItem.titleView = searchController.searchBar
+
+        // Sets this view controller as presenting view controller for the search interface
+        definesPresentationContext = true
+
     }
 
     private func splitDataInToSection() {
@@ -110,7 +123,8 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
 
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredCards = cards.filter { card in
-            return card.firstName.lowercaseString.containsString(searchText.lowercaseString)
+            return card.firstName.lowercaseString.containsString(searchText.lowercaseString) ||
+                searchText == ""
         }
 
         splitDataInToSection()
@@ -207,8 +221,8 @@ extension CardTableViewController: UISearchResultsUpdating {
         shouldShowSearchResults = true
         tableView.reloadData()
     }
-
-
+    
+    
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         shouldShowSearchResults = false
         tableView.reloadData()
