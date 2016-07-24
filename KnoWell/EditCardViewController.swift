@@ -149,24 +149,93 @@ class EditCardViewController: UIViewController, UITextFieldDelegate,UIImagePicke
         //
         var alert=UIAlertController(title: "Adding additional information ", message: nil,preferredStyle: UIAlertControllerStyle.Alert);
 
-        func handleEmail(act:UIAlertAction){
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients(["paul@hackingwithswift.com"])
-            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
-                
-            presentViewController(mail, animated: true, completion: nil)
+        func handleFB(act:UIAlertAction){
+            var inputTextField:UITextField?
+            let alert = UIAlertController(title: "Facebook Link", message: "Please paste your Facebook address.", preferredStyle: .Alert) // 7
+            let defaultAction = UIAlertAction(title: "OK", style: .Default) { (alert: UIAlertAction!) -> Void in
+                NSLog("You pressed button OK")
+                Card.currentUserCard?.facebook = (inputTextField?.text)!
+            } // 8
+            
+            alert.addAction(defaultAction) // 9
+            alert.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
+                textField.placeholder = "Paste here..."
+                inputTextField = textField
+            } // 10
+            
+            presentViewController(alert, animated: true, completion:nil)  // 11
+
+        }
+        func handleTW(act:UIAlertAction){
+            let alert = UIAlertController(title: "Twitter Link", message: "Please paste your Twitter address.", preferredStyle: .Alert) // 7
+            let defaultAction = UIAlertAction(title: "OK", style: .Default) { (alert: UIAlertAction!) -> Void in
+                NSLog("You pressed button OK")
+            } // 8
+            
+            alert.addAction(defaultAction) // 9
+            alert.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
+                textField.placeholder = "Paste here..."
+            } // 10
+            
+            presentViewController(alert, animated: true, completion:nil)  // 11
+        }
+        func handleLK(act:UIAlertAction){
+            let alert = UIAlertController(title: "LinkedIn Link", message: "Please paste your LinkedIn address.", preferredStyle: .Alert) // 7
+            let defaultAction = UIAlertAction(title: "OK", style: .Default) { (alert: UIAlertAction!) -> Void in
+                NSLog("You pressed button OK")
+            } // 8
+            
+            alert.addAction(defaultAction) // 9
+            alert.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
+                textField.placeholder = "Paste here..."
+            } // 10
+            
+            presentViewController(alert, animated: true, completion:nil)  // 11
+        }
+        func handleGP(act:UIAlertAction){
+            let alert = UIAlertController(title: "Google+ Link", message: "Please paste your Google+ address.", preferredStyle: .Alert) // 7
+            let defaultAction = UIAlertAction(title: "OK", style: .Default) { (alert: UIAlertAction!) -> Void in
+                NSLog("You pressed button OK")
+            } // 8
+            
+            alert.addAction(defaultAction) // 9
+            alert.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
+                textField.placeholder = "Paste here..."
+            } // 10
+            
+            presentViewController(alert, animated: true, completion:nil)  // 11
+        }
+        func handleWB(act:UIAlertAction){
+            let alert = UIAlertController(title: "Webpage Link", message: "Please paste your website address.", preferredStyle: .Alert) // 7
+            let defaultAction = UIAlertAction(title: "OK", style: .Default) { (alert: UIAlertAction!) -> Void in
+                NSLog("You pressed button OK")
+            } // 8
+            
+            alert.addAction(defaultAction) // 9
+            alert.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
+                textField.placeholder = "Paste here..."
+            } // 10
+            
+            presentViewController(alert, animated: true, completion:nil)  // 11
         }
         
         
-        let buttonEmail = UIAlertAction(title: "Via Email", style: .Default, handler: handleEmail)
+        let buttonFB = UIAlertAction(title: "Facebook", style:.Default, handler: handleFB)
+        let buttonTW = UIAlertAction(title: "Twitter", style: .Default, handler: handleTW)
+        let buttonLK = UIAlertAction(title: "LinkedIn", style: .Default, handler: handleLK)
+        let buttonGP = UIAlertAction(title: "Google+", style: .Default, handler: handleGP)
+        let buttonWB = UIAlertAction(title: "WebSite", style: .Default, handler: handleWB)
         let buttonCancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action) -> Void in
             print("Cancel Button Pressed")
         }
-        alert.addAction(buttonEmail);
-        alert.addAction(buttonCancel);
+        alert.addAction(buttonFB)
+        alert.addAction(buttonTW)
+        alert.addAction(buttonLK)
+        alert.addAction(buttonGP)
+        alert.addAction(buttonWB)
+        alert.addAction(buttonCancel)
         
-        presentViewController(alert, animated: true, completion: nil);
+        presentViewController(alert, animated: true, completion: nil)
     }
 
     
