@@ -42,7 +42,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
      }
      */
 
+    func goToMainView() {
+        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("StartingPoint")
+        self.presentViewController(viewController, animated: true, completion: nil)
+    }
+
     @IBAction func unwindToLogInScreen(segue:UIStoryboardSegue) {
+    }
+
+    func showAlert(title: String, message: String, alertTitle: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: alertTitle, style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+
+        presentViewController(alertController, animated: true, completion: nil)
     }
 
     @IBAction func loginAction(sender: AnyObject) {
@@ -51,13 +64,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         // Validate the text fields
         if username?.characters.count < 5 {
-            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
 
         } else if password?.characters.count < 6 {
-            let alert = UIAlertView(title: "Invalid", message: "Password must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-
+            showAlert("Invalid", message: "Password must be greater than 5 characters", alertTitle: "OK")
         } else {
             // Run a spinner to show a task in progress
             let spinner: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150)) as UIActivityIndicatorView
@@ -71,14 +80,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
                 if ((user) != nil) {
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("StartingPoint")
-                        self.presentViewController(viewController, animated: true, completion: nil)
+                        self.goToMainView()
                     })
-
                 } else {
-                    let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
-                    alert.show()
+                    self.showAlert("Error", message: "\(error)", alertTitle: "OK")
                 }
+            })
+        }
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        if (PFUser.currentUser() != nil) {
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.goToMainView();
             })
         }
     }

@@ -31,6 +31,15 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
     var textToShare = ""
     var progressViewController:ProgressViewController = ProgressViewController(message: "Loading Profile...")
 
+    // Common method to show alerts
+    func showAlert(title: String, message: String, alertTitle: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let defaultAction = UIAlertAction(title: alertTitle, style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+
     // A wrapper function to indicate whether or not a text message can be sent from the user's device
     func canSendText() -> Bool {
         return MFMessageComposeViewController.canSendText()
@@ -46,7 +55,7 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
     }
 
     // MFMessageComposeViewControllerDelegate callback - dismisses the view controller when the user is finished with it
-    func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
 
@@ -96,8 +105,7 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
                 presentViewController(messageComposeVC, animated: true, completion: nil)
             } else {
                 // Let the user know if his/her device isn't able to send text messages
-                let errorAlert = UIAlertView(title: "Cannot Send Text Message", message: "Your device is not able to send text messages.", delegate: self, cancelButtonTitle: "OK")
-                errorAlert.show()
+                showAlert("Cannot Send Text Message", message: "Your device is not able to send text messages.", alertTitle: "OK")
             }
         }
         func handleEmail(act:UIAlertAction){
@@ -169,8 +177,7 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
                 presentViewController(messageComposeVC, animated: true, completion: nil)
             } else {
                 // Let the user know if his/her device isn't able to send text messages
-                let errorAlert = UIAlertView(title: "Cannot Send Text Message", message: "Your device is not able to send text messages.", delegate: self, cancelButtonTitle: "OK")
-                errorAlert.show()
+                showAlert("Cannot Send Text Message", message: "Your device is not able to send text messages.", alertTitle: "OK")
             }
         }
         func handleEmail(act:UIAlertAction){
@@ -201,7 +208,7 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
         presentViewController(alert, animated: true, completion: nil);
     }
 
-    var flagFront = true
+    var flagFront = false
 
 
     func flip() {
@@ -246,6 +253,7 @@ class SelfinfoController: UIViewController, UITextFieldDelegate, MFMessageCompos
 
         flagFront = false
         cardbackView.hidden = false
+        maincardView.hidden = true
 
         view.addSubview(cardbackView)
         view.addSubview(maincardView)
