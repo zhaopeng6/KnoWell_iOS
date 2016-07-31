@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KnoWell/EditCardViewController.swift"
-            timestampString = "491011400.043114"
+            timestampString = "488613517.578617"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278">
+            startingLineNumber = "217"
+            endingLineNumber = "217">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
