@@ -9,13 +9,38 @@
 import UIKit
 
 class Card {
+    enum Field: Int {
+        case ObjId = 0,
+        UserId,
+        About,
+        Message,
+        Motto,
+        City,
+        Company,
+        Email,
+        Facebook,
+        GPlus,
+        LinkedIn,
+        Twitter,
+        Web,
+        Title,
+        FirstName,
+        LastName,
+        Portrait,
+        Phone,
+        NOMATCH
+    }
+
+
     //Mark: Properties
     var objID:String
 
     var userID:String
 
     var about:String
+
     var message:String
+
     var motto:String
 
     var city:String
@@ -124,7 +149,7 @@ class Card {
                     userId:pfObject!["userId"] as! String,
                     firstName: (pfObject!["firstName"] as? String)!,
                     lastName: (pfObject!["lastName"] as? String)!,
-                    
+
                     about:pfObject!["about"] as? String,
                     message:pfObject!["message"] as? String,
                     motto:pfObject!["motto"] as? String,
@@ -138,9 +163,9 @@ class Card {
                     linkedin: pfObject!["linkedin"] as? String,
                     twitter: pfObject!["twitter"] as? String,
                     web: pfObject!["web"] as? String,
-                    
-                    
-                    
+
+
+
                     title: pfObject!["title"] as? String,
                     portrait:portraitImage,
                     phone: pfObject!["phone"] as? String)
@@ -168,29 +193,29 @@ class Card {
         }
         return currentUserCard
     }
-    
-    
+
+
     static func saveCurrentUserCard(card:Card) {
         if PFUser.currentUser()?.objectId == nil {
             print("SilentError: Current User is nill because PFUser() objID is null")
             return
         }
-        
+
         if let parseObj = ParseUtilities.getECardInfoFromUserId((PFUser.currentUser()?.objectId)!) {
             parseObj.setObject(card.company, forKey: "company")
             parseObj.setObject(card.firstName, forKey: "firstName")
             parseObj.setObject(card.lastName, forKey: "lastName")
             parseObj.setObject(card.title, forKey: "title")
             parseObj.setObject(card.email, forKey: "email")
-            
+
             let imageData = card.portrait.lowestQualityJPEGNSData
-            
+
             let imageFile = PFFile(data:imageData)
-        
-            
+
+
             parseObj.setObject(imageFile!, forKey: "portrait")
-            
-            
+
+
             parseObj.saveInBackgroundWithBlock { (succeeded,error) -> Void in
                 if succeeded {
                     print("Object Uploaded")
@@ -201,7 +226,7 @@ class Card {
             }
         }
     }
-    
+
 
     static func getCurrentUserContacts() -> [Card] {
         let ecardInfos:[PFObject] = ParseUtilities.getAllContactsLocal(currentEcardInfo)!
@@ -209,11 +234,70 @@ class Card {
         for eInfo in ecardInfos {
             cardsToReturn.append(getCardFromPFObject(eInfo)!)
         }
-        
+
         return cardsToReturn
-        
+
     }
-    
+
+    func getFieldWhichMatchesString(key: String!) -> Card.Field {
+        let keyLower = key.lowercaseString
+
+        if keyLower == "" || firstName.lowercaseString.containsString(keyLower) { return Card.Field.FirstName }
+        else if lastName.lowercaseString.containsString(keyLower) { return Card.Field.LastName }
+        else if about.lowercaseString.containsString(keyLower) { return Card.Field.About }
+        else if city.lowercaseString.containsString(keyLower) { return Card.Field.City }
+        else if company.lowercaseString.containsString(keyLower) { return Card.Field.Company }
+        else if email.lowercaseString.containsString(keyLower) { return Card.Field.Email }
+        else if facebook.lowercaseString.containsString(keyLower) { return Card.Field.Facebook }
+        else if gplus.lowercaseString.containsString(keyLower) {return Card.Field.GPlus }
+        else if linkedin.lowercaseString.containsString(keyLower) { return Card.Field.LinkedIn }
+        else if message.lowercaseString.containsString(keyLower) { return Card.Field.Message }
+        else if motto.lowercaseString.containsString(keyLower) { return Card.Field.Motto }
+        else if phone.lowercaseString.containsString(keyLower) { return Card.Field.Phone }
+        else if title.lowercaseString.containsString(keyLower) {return Card.Field.Title }
+        else if twitter.lowercaseString.containsString(keyLower) { return Card.Field.Twitter }
+        else { return Card.Field.NOMATCH }
+    }
+
+    func getFieldAsString(field: Int) -> String! {
+        if let intAsField:Card.Field = Card.Field(rawValue: field) {
+            switch intAsField {
+            case .About:
+                return about
+            case .City:
+                return city
+            case .Company:
+                return company
+            case .Email:
+                return email
+            case .Facebook:
+                return facebook
+            case .FirstName:
+                return firstName
+            case .GPlus:
+                return gplus
+            case .LastName:
+                return lastName
+            case .LinkedIn:
+                return linkedin
+            case .Message:
+                return message
+            case .Motto:
+                return motto
+            case .Phone:
+                return phone
+            case .Title:
+                return title
+            case .Twitter:
+                return twitter
+            default:
+                return ""
+            }
+        } else {
+            return ""
+        }
+    }
+
 }
 extension UIImage {
     var uncompressedPNGData: NSData      { return UIImagePNGRepresentation(self)!        }

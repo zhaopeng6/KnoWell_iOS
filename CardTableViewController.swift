@@ -11,6 +11,7 @@ import UIKit
 class CardTableViewController: UITableViewController, UISearchBarDelegate {
     var cards = [Card]()
     var filteredCards = [Card]()
+    var filteredFields = [Int]()
     var searchController: UISearchController!
 
     var shouldShowSearchResults: Bool = false
@@ -58,6 +59,7 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
         searchController.searchBar.placeholder = "Search here ..."
         searchController.searchBar.sizeToFit()
         searchController.searchBar.delegate = self
+        searchController.searchBar.showsCancelButton = false
         // tableView.tableHeaderView = searchController.searchBar
 
         self.searchController.hidesNavigationBarDuringPresentation = false;
@@ -74,11 +76,15 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
 
     }
 
+    private func isSearchActive() -> Bool {
+        return searchController.active && searchController.searchBar.text != ""
+    }
+
     private func splitDataInToSection() {
         // Get the list we are interested in
         var currList : [Card]
 
-        if searchController.active && searchController.searchBar.text != "" {
+        if isSearchActive() {
             currList = filteredCards
         } else {
             currList = cards
@@ -123,8 +129,13 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
 
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredCards = cards.filter { card in
-            return card.firstName.lowercaseString.containsString(searchText.lowercaseString) ||
-                searchText == ""
+            let field = card.getFieldWhichMatchesString(searchText).rawValue
+            if field != Card.Field.NOMATCH.rawValue {
+                filteredFields.append(field)
+                return true
+            }
+
+            return false
         }
 
         splitDataInToSection()
@@ -185,6 +196,52 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
         cell.secondDescField.text = currentCard?.city
         cell.imageField.image = currentCard?.portrait
 
+        if isSearchActive() {
+
+            var total:Int = 0
+            var i = 0;
+
+            while i < indexPath.section {
+                total += tableView.numberOfRowsInSection(i)
+                i += 1
+            }
+
+            total += indexPath.row
+
+            let field = Card.Field(rawValue: filteredFields[total])
+            var baseString:String
+            var textView:UILabel
+
+            if field == Card.Field.FirstName || field == Card.Field.LastName {
+                baseString = (currentCard?.firstName)! + " " + (currentCard?.lastName)!
+                textView = cell.nameField
+            } else if field == Card.Field.Company {
+                baseString = (currentCard?.company)!
+                textView = cell.firstDescField
+            } else {
+                baseString = (currentCard?.getFieldAsString((field?.rawValue)!))!
+                cell.secondDescField.text = baseString
+                textView = cell.secondDescField
+            }
+
+            let searchString = searchController.searchBar.text!
+
+            let attributed = NSMutableAttributedString(string: baseString)
+
+            var error: NSError?
+            let lengthString = baseString.lengthOfBytesUsingEncoding(baseString.smallestEncoding)
+            do {
+                let regex = try NSRegularExpression(pattern: searchString, options: .CaseInsensitive)
+                for match in regex.matchesInString(baseString, options: NSMatchingOptions.Anchored, range: NSRange(location: 0, length: lengthString)) as [NSTextCheckingResult] {
+                    print("Match match match in range " + String(match.range))
+                    attributed.addAttribute(NSBackgroundColorAttributeName, value: UIColor.yellowColor(), range: match.range)
+                }
+
+                textView.attributedText = attributed
+            } catch {
+                print("Oh no!")
+            }
+        }
         // return cell
         return cell
     }
@@ -213,6 +270,10 @@ class CardTableViewController: UITableViewController, UISearchBarDelegate {
 }
 
 extension CardTableViewController: UISearchResultsUpdating {
+    func didPresentSearchController(searchController: UISearchController) {
+        searchController.searchBar.showsCancelButton = false
+    }
+
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
