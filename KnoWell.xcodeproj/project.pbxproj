@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		750F17FC1D1774AC0081D6D9 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750F17FB1D1774AC0081D6D9 /* NoteViewController.swift */; };
+		750F17FC1D1774AC0081D6D9 /* CardDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750F17FB1D1774AC0081D6D9 /* CardDetailsViewController.swift */; };
 		751CB6311C6822BE00209639 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CB6301C6822BE00209639 /* CardTableViewCell.swift */; };
 		751CB6331C68703D00209639 /* CardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CB6321C68703D00209639 /* CardTableViewController.swift */; };
 		751CB6351C6870C900209639 /* EditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CB6341C6870C900209639 /* EditCardViewController.swift */; };
@@ -49,7 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		750F17FB1D1774AC0081D6D9 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		750F17FB1D1774AC0081D6D9 /* CardDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailsViewController.swift; sourceTree = "<group>"; };
 		751CB6301C6822BE00209639 /* CardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		751CB6321C68703D00209639 /* CardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardTableViewController.swift; path = ../CardTableViewController.swift; sourceTree = "<group>"; };
 		751CB6341C6870C900209639 /* EditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCardViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 				751CB6301C6822BE00209639 /* CardTableViewCell.swift */,
 				751CB6341C6870C900209639 /* EditCardViewController.swift */,
 				751CB6381C68738B00209639 /* AddCardViewController.swift */,
-				750F17FB1D1774AC0081D6D9 /* NoteViewController.swift */,
+				750F17FB1D1774AC0081D6D9 /* CardDetailsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 				751CB6391C68738B00209639 /* AddCardViewController.swift in Sources */,
 				D28AEAA41C8619250018AC76 /* LoginViewControlller.swift in Sources */,
 				751CB6351C6870C900209639 /* EditCardViewController.swift in Sources */,
-				750F17FC1D1774AC0081D6D9 /* NoteViewController.swift in Sources */,
+				750F17FC1D1774AC0081D6D9 /* CardDetailsViewController.swift in Sources */,
 				757CE1171C5ED8F400933076 /* SelfinfoController.swift in Sources */,
 				75FC563E1C61D76F006EC492 /* Card.swift in Sources */,
 				757CE1151C5ED8F400933076 /* AppDelegate.swift in Sources */,

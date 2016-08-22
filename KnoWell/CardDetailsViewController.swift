@@ -8,17 +8,22 @@
 
 import UIKit
 
-class NoteViewController: UIViewController, UITextFieldDelegate{
+class CardDetailsViewController: UIViewController, UITextFieldDelegate{
     
     //MARK:Properties
-    @IBOutlet weak var nameTextField: UILabel!
-    @IBOutlet weak var companyTextField: UILabel!
-    @IBOutlet weak var titleTextField: UILabel!
-    @IBOutlet weak var contactTextField: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var companyTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var contactTextField: UITextField!
     @IBOutlet weak var portraitImageView: UIImageView!
-    
+    @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var maincardView: UIView!
     
+    @IBOutlet weak var lastModifiedTextField: UITextField!
+    @IBOutlet weak var dateOfMetTextField: UITextField!
+    @IBOutlet weak var placeOfMetTextField: UITextField!
+    @IBOutlet weak var eventOfMetTextField: UITextField!
+    @IBOutlet weak var commentsTextField: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +35,7 @@ class NoteViewController: UIViewController, UITextFieldDelegate{
             self.contactTextField.text = currentCard.email
             self.portraitImageView.image = currentCard.portrait
             
+          //  self.lastModifiedTextField.text = currentCard.emall
             view.addSubview(maincardView)
         }
     }
